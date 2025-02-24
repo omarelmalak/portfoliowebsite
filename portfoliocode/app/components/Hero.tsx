@@ -2,43 +2,69 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { FaLinkedin, FaGithub, FaFileAlt, FaFilePdf } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+
 
 const Hero: React.FC = () => {
     const [rotation, setRotation] = useState({ x: 0, y: 0 });
 
     const handleMouseMove = (event: React.MouseEvent) => {
-        const { clientX, clientY } = event;
-        const centerX = window.innerWidth / 2;
-        const centerY = window.innerHeight / 2;
+        const element = document.querySelector('.avatar-container');
+        if (element) {
+            const rect = element.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
 
-        setRotation({
-            x: Math.max(Math.min(((clientY - centerY) / centerY) * 15, 8), -8),
-            y: Math.max(Math.min(((clientX - centerX) / centerX) * 15, 8), -8),
-        });
+            const { clientX, clientY } = event;
+
+            setRotation({
+                x: Math.max(Math.min(((clientY - centerY) / centerY) * 15, 8), -8),
+                y: Math.max(Math.min(((clientX - centerX) / centerX) * 15, 8), -8),
+            });
+        }
     };
 
     return (
         <div
-            className="min-h-screen bg-black text-white flex items-center justify-center px-6"
+            className="relative min-h-screen bg-black text-white flex items-center justify-center px-6"
             onMouseMove={handleMouseMove}
         >
-            <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl w-full gap-12">
+            <div className="absolute top-1 left-3 w-[450px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-3xl" />
+            <div className="absolute top-1 right-0 w-[500px] h-[500px] bg-gradient-to-r from-[#F7D1A4] from-[#F4F1A1] rounded-full opacity-40 blur-3xl" />
+
+
+            <div className="flex flex-col md:flex-row items-center justify-between max-w-5xl w-full gap-12">
                 <motion.div
                     className="text-center md:text-left"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h1 className="text-5xl font-semibold tracking-tight">Omar El Malak</h1>
-                    <p className="text-xl text-gray-400 mt-4">Software Developer & Designer</p>
+                    <h1 className="text-5xl font-sfBold tracking-tight">Omar El Malak</h1>
+                    <p className="text-3xl font-sfBold text-gray-400 mt-2">Software Developer & Designer</p>
 
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="mt-6 px-6 py-3 bg-white text-black font-medium rounded-full shadow-lg backdrop-blur-md bg-opacity-80 hover:bg-opacity-100 transition"
-                    >
-                        Learn More
-                    </motion.button>
+                    <motion.div
+                        className="flex flex-col md:flex-row max-w-5xl w-full gap-3 mt-4"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}>
+                        <div className="flex space-x-4">
+                            <a href="https://www.linkedin.com/in/omarelmalak" target="_blank" rel="noopener noreferrer">
+                                <FaLinkedin size={40} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
+                            </a>
+                            <a href="https://github.com/omarelmalak" target="_blank" rel="noopener noreferrer">
+                                <FaGithub size={40} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
+                            </a>
+                            <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+                                <FaFileAlt size={40} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
+                            </a>
+                            <a href="mailto:omarelmalak28@gmail.com" target="_blank" rel="noopener noreferrer">
+                                <MdEmail size={45} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
+                            </a>
+                        </div>
+
+                    </motion.div>
                 </motion.div>
 
                 <motion.div
@@ -205,7 +231,6 @@ const Hero: React.FC = () => {
                 </motion.div>
             </div>
 
-            <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-3xl" />
         </div>
     );
 };

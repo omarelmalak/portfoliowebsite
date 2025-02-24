@@ -17,15 +17,17 @@ export default {
         sfSemiBold: ['sfSemiBold'],
         sfBold: ['sfBold']
       },
-      keyframes: {
-        tornado: {
-          '0%': { transform: 'rotate(0deg) translate(0, 0)' },
-          '50%': { transform: 'rotate(180deg) translate(0, 0)' },
-          '100%': { transform: 'rotate(360deg) translate(0, 0)' },
-        },
-      },
       animation: {
-        tornado: 'tornado 1s ease-in-out',
+        'move-around': 'moveAround 10s ease-in-out infinite',
+      },
+      keyframes: {
+        moveAround: {
+          '0%': { transform: 'translate(-50%, -50%)' },
+          '25%': { transform: 'translate(50%, -50%)' },
+          '50%': { transform: 'translate(50%, 50%)' },
+          '75%': { transform: 'translate(-50%, 50%)' },
+          '100%': { transform: 'translate(-50%, -50%)' },
+        },
       },
     },
   },
