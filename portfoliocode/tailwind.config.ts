@@ -17,17 +17,39 @@ export default {
         sfSemiBold: ['sfSemiBold'],
         sfBold: ['sfBold']
       },
-      animation: {
-        'move-around': 'moveAround 10s ease-in-out infinite',
-      },
       keyframes: {
-        moveAround: {
-          '0%': { transform: 'translate(-50%, -50%)' },
-          '25%': { transform: 'translate(50%, -50%)' },
-          '50%': { transform: 'translate(50%, 50%)' },
-          '75%': { transform: 'translate(-50%, 50%)' },
-          '100%': { transform: 'translate(-50%, -50%)' },
+        leftHero: {
+          '0%': {
+            transform: 'translateX(0) translateY(0)',
+          },
+          '25%': {
+            transform: 'translateX(50px) translateY(40px)',
+          },
+          '75%': {
+            transform: 'translateX(20px) translateY(20px)',
+          },
+          '100%': {
+            transform: 'translateX(0) translateY(0)',
+          },
         },
+        rightHero: {
+          '0%': {
+            transform: 'translateX(0) translateY(0)',
+          },
+          '25%': {
+            transform: 'translateX(100px) translateY(40px)',
+          },
+          '75%': {
+            transform: 'translateX(40px) translateY(20px)',
+          },
+          '100%': {
+            transform: 'translateX(0) translateY(0)',
+          },
+        },
+      },
+      animation: {
+        'left-hero': 'leftHero 10s ease-in-out infinite',
+        'right-hero': 'rightHero 20s ease-in-out infinite'
       },
     },
   },
