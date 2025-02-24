@@ -26,7 +26,7 @@ export default {
             transform: 'translateX(50px) translateY(40px)',
           },
           '75%': {
-            transform: 'translateX(20px) translateY(20px)',
+            transform: 'translateX(80px) translateY(20px)',
           },
           '100%': {
             transform: 'translateX(0) translateY(0)',
