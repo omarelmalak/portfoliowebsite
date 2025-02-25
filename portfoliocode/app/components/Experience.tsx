@@ -125,7 +125,7 @@ const Experiences: React.FC = () => {
     }, []);
 
     return (
-        <div className="relative min-h-screen flex flex-col bg-black h-full">
+        <div className="relative min-h-screen max-w-screen flex flex-col bg-black h-full">
             <div className="absolute w-full h-full bg-green" />
             <div className="relative sticky top-0 left-[70vw] w-[300px] h-[300px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
             <div className="relative sticky top-[60vh] left-[10vw] w-[500px] h-[300px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
@@ -141,16 +141,32 @@ const Experiences: React.FC = () => {
                 <p className="text-4xl font-sfBold text-gray-400 mt-2">There is no substitute.</p>
             </motion.div>
 
+
+
             <div className="h-[9vh]"></div>
 
             <motion.div
-                className="relative sticky top-[250px] left-[10vw] bg-white rounded-[16px] h-[50vh] w-[27vw]"
+                className="relative sticky top-[30vh] left-[10vw] bg-[#2D4677] rounded-[16px] h-[50vh] w-[27vw]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+            />
+            <motion.div
+                className="relative sticky top-[74vh] left-[34vw] bg-white rounded-[100px] shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-[6vw] max-h-[10vh]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
             >
-
+                <img
+                    src="/assets/Geotab.png"
+                    alt="Your Description"
+                    className="rounded-[100px] max-w-[6vw] max-h-[10vh] object-cover"
+                />
             </motion.div>
+
+
+
+
             <div className="w-full flex flex-col items-end pr-[10vw]">
                 {experienceList.map((experience, index) => (
                     <motion.div

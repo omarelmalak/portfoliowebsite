@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
 
     return (
         <div
-            className="relative min-h-screen bg-black text-white flex items-center justify-center px-6"
+            className="relative min-h-screen max-w-screen bg-black text-white overflow-x-hidden flex items-center justify-center px-6"
             onMouseMove={handleMouseMove}
         >
             <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-3xl animate-left-hero" />

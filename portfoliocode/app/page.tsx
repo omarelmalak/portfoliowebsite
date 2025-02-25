@@ -1,16 +1,20 @@
 "use client";
 import Hero from "./components/Hero";
 import Experience from "./components/Experience";
+import { useRef } from "react";
+import { motion, useScroll } from "framer-motion";
+
+
 
 const Website: React.FC = () => {
+
+
   return (
-    <div className="w-full">
+    <div>
       <Hero />
-      {/* Ensure Experience is fully visible when scrolling */}
-      <div id="experience-section">
-        <Experience />
-      </div>
+      <Experience />
     </div>
+
   );
 };
 
