@@ -127,6 +127,9 @@ const Experiences: React.FC = () => {
     return (
         <div className="relative min-h-screen flex flex-col bg-black h-full">
             <div className="absolute w-full h-full bg-green" />
+            <div className="relative sticky top-0 left-[70vw] w-[300px] h-[300px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
+            <div className="relative sticky top-[60vh] left-[10vw] w-[500px] h-[300px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
+
 
             <motion.div
                 className="relative sticky top-[80px] pl-[10vw] text-left"
@@ -138,10 +141,10 @@ const Experiences: React.FC = () => {
                 <p className="text-4xl font-sfBold tracking-wide text-gray-400 mt-2">There is no substitute.</p>
             </motion.div>
 
-            <div className="h-[50px]"></div>
+            <div className="h-[9vh]"></div>
 
             <motion.div
-                className="relative sticky top-[250px] left-[10vw] bg-white rounded-[16px] h-[400px] w-[400px]"
+                className="relative sticky top-[250px] left-[10vw] bg-white rounded-[16px] h-[50vh] w-[27vw]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
