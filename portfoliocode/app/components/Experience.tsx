@@ -197,7 +197,7 @@ const Experiences: React.FC = () => {
                         className={`relative sticky top-[30vh] left-[10vw] rounded-[16px] h-[50vh] w-[30vw] flex flex-col items-center justify-center gap-[3vh]`}
                         style={{
                             backgroundColor: experienceList[visibleIndex]?.color || "#ffffff",
-                            boxShadow: '0px -2px 20px rgba(255, 255, 255, 0.25)',
+                            // boxShadow: '0px -2px 20px rgba(255, 255, 255, 0.25)',
                         }}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
