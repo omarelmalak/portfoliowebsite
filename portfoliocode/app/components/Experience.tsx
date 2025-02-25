@@ -198,7 +198,7 @@ const Experiences: React.FC = () => {
             {visibleIndex !== null && experienceList[visibleIndex] ? (
                 <>
                     <motion.div
-                        className={`relative sticky top-[30vh] left-[10vw] rounded-[16px] h-[50vh] w-[27vw] flex flex-col items-center justify-center gap-4`}
+                        className={`relative sticky top-[30vh] left-[10vw] rounded-[16px] h-[50vh] w-[30vw] flex flex-col items-center justify-center gap-[3vh]`}
                         style={{
                             backgroundColor: experienceList[visibleIndex]?.color || "#ffffff",
                             boxShadow: '0px -2px 20px rgba(255, 255, 255, 0.25)',
@@ -207,7 +207,7 @@ const Experiences: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
-                        <p className="text-3xl font-sfBold text-white text-center">
+                        <p className="text-3xl font-sfBold text-white text-center max-w-[28vw]">
                             {experienceList[visibleIndex]?.companySummary}
                         </p>
 
@@ -217,7 +217,7 @@ const Experiences: React.FC = () => {
                                 loop
                                 autoPlay
                                 muted
-                                className="rounded-[16px] max-w-[24vw] max-h-[30vh]"
+                                className="rounded-[16px] max-w-[28vw] max-h-[30vh]"
                                 initial={{ scale: 0.95 }}
                                 animate={{ scale: 1 }}
                                 transition={{ duration: 0.3 }}
@@ -233,22 +233,18 @@ const Experiences: React.FC = () => {
                         )}
                     </motion.div>
 
-                    <motion.div
-                        className="relative sticky top-[75vh] left-[34vw] bg-white rounded-full shadow-lg transition-all duration-500 ease-out transform flex items-center justify-center w-[6vw] h-[6vh] hover:scale-110 hover:shadow-xl hover:cursor-pointer"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    <a
+                        href={experienceList[visibleIndex]?.website}  // Ensure this link is valid
+                        className="relative sticky top-[76vh] left-[37vw] bg-white rounded-full shadow-lg transition-all duration-500 ease-out transform flex items-center justify-center max-w-[8vw] h-[8vh] hover:scale-110 hover:shadow-xl hover:cursor-pointer inline-flex"
+
                     >
-
-                        <motion.img
+                        <img
                             src={experienceList[visibleIndex]?.logoPath}
-                            className="rounded-full object-contain h-[6vh] w-auto bg-white transition-all duration-500 ease-out"
-                            initial={{ scale: 0.8 }}
-                            animate={{ scale: 1 }}
-                            transition={{ duration: 0.3 }}
+                            className="rounded-full object-contain h-[8vh] w-auto bg-white transition-all duration-500 ease-out"
                         />
+                    </a>
 
-                    </motion.div>
+
 
 
 
