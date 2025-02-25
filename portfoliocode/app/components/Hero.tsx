@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
             onMouseMove={handleMouseMove}
         >
             <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-3xl animate-left-hero" />
-            <div className="absolute top-1 right-0 w-[500px] h-[500px] bg-gradient-to-r from-[#F7D1A4] from-[#F4F1A1] rounded-full opacity-40 blur-3xl animate-right-hero" />
+            <div className="absolute top-1 right-0 w-[500px] h-[500px] bg-gradient-to-r from-[#F7D1A4] from-[#F4F1A1] rounded-full opacity-35 blur-3xl animate-right-hero" />
 
 
             <div className="flex flex-col md:flex-row items-center justify-between max-w-5xl w-full gap-12">
@@ -80,7 +80,6 @@ const Hero: React.FC = () => {
                         height: "300px",
                         width: "500px",
                         position: "relative",
-                        boxShadow: "rgba(255, 255, 255, 0.1)",
                     }}
                 >
                     <div

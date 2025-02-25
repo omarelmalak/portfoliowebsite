@@ -1,0 +1,1 @@
+const oldCard = "p-6 w-[20vw] bg-blue-50 rounded-lg shadow-md transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:bg-blue-100 hover:cursor-pointer";

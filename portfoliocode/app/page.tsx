@@ -1,15 +1,17 @@
 "use client";
-import Hero from "./components/Hero"
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import gsap from "gsap";
-
-
+import Hero from "./components/Hero";
+import Experience from "./components/Experience";
 
 const Website: React.FC = () => {
   return (
-    <Hero />
-  )
+    <div className="w-full">
+      <Hero />
+      {/* Ensure Experience is fully visible when scrolling */}
+      <div id="experience-section">
+        <Experience />
+      </div>
+    </div>
+  );
 };
 
 export default Website;
