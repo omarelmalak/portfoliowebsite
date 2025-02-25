@@ -6,11 +6,7 @@ import {
     useTransform,
     useMotionTemplate,
 } from "framer-motion";
-import { useRef, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-
-
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { useRef, useEffect, useState } from "react";
 
 interface Experience {
     companyName: string;
@@ -22,9 +18,6 @@ interface Experience {
 
 
 const Experiences: React.FC = () => {
-    const { ref, inView } = useInView({
-        threshold: 1, // 1 means 100% of the component must be in view
-    });
     const myEdMaster: Experience = {
         companyName: "MyEdMaster", position: "Software Engineering Team Lead", startDate: "January 2025", endDate: "Now",
         bullets:
@@ -91,52 +84,152 @@ const Experiences: React.FC = () => {
         microsoft
     ]
 
-    const alignCenter = { display: 'flex', alignItems: 'center' }
+    /*
+        const [containerRef, isVisible] = useElementOnScreen({
+            root: null,
+            rootMargin: "0px",
+            threshold: 1
+        })
+        */
+    const [visibleIndex, setVisibleIndex] = useState<number | null>(null);
+    const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        const checkVisibility = () => {
+            itemRefs.current.forEach((item, index) => {
+                if (item) {
+                    const rect = item.getBoundingClientRect();
+
+
+
+                    if (rect.y >= 400 && rect.y <= 500) {
+                        console.log("DONE");
+                        setVisibleIndex(index);
+                    }
+                }
+            });
+        };
+
+        // Add event listeners for scroll and resize events
+        window.addEventListener("scroll", checkVisibility);
+        window.addEventListener("resize", checkVisibility);
+
+        // Initial check in case the page is already scrolled
+        checkVisibility();
+
+        // Cleanup listeners on unmount
+        return () => {
+            window.removeEventListener("scroll", checkVisibility);
+            window.removeEventListener("resize", checkVisibility);
+        };
+    }, []);
 
     return (
-        <div>
-            <div className="absolute min-h-screen bg-green w-[100vw] h-[100vh]" />
+        <div className="relative min-h-screen flex flex-col bg-black h-full">
+            <div className="absolute w-full h-full bg-green" />
+
             <motion.div
-                className="text-left ml-[250px] mt-[100px]"
+                className="relative sticky top-[80px] pl-[10vw] text-left"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1, ease: "easeOut" }}
             >
                 <h1 className="text-6xl font-sfBold tracking-tight">Experience</h1>
-                <p className="text-4xl font-sfBold text-gray-400 mt-2">There is no substitute.</p>
+                <p className="text-4xl font-sfBold tracking-wide text-gray-400 mt-2">There is no substitute.</p>
             </motion.div>
 
-            <Parallax pages={5}>
-                <ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' }}>
+            <div className="h-[50px]"></div>
 
-                </ParallaxLayer>
+            <motion.div
+                className="relative sticky top-[250px] left-[10vw] bg-white rounded-[16px] h-[400px] w-[400px]"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+            >
 
-                <ParallaxLayer sticky={{ start: 1, end: 3 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
-                    <div className="flex justify-center items-center h-[10rem] w-[25%] text-center rounded-[10px] ml-[15%] bg-green">
-                        <p>I'm a sticky layer</p>
-                    </div>
-                </ParallaxLayer>
+            </motion.div>
+            <div className="w-full flex flex-col items-end pr-[10vw]">
+                {experienceList.map((experience, index) => (
+                    <motion.div
+                        className={`flex flex-col text-left max-w-[40vw] mt-24 transition-opacity duration-300`}
+                        key={index}
+                        ref={(el: HTMLDivElement | null) => { itemRefs.current[index] = el; }}
+                        style={{
+                            opacity: visibleIndex === index ? 1 : 0.4,
+                        }}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{
+                            opacity: visibleIndex === index ? 1 : 0.4,
+                            x: 0,
+                        }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                        {/* Experience Text */}
+                        <div className="w-full">
+                            <h1 className="text-4xl font-sfBold tracking-tight">{experience.companyName}</h1>
+                            <p className="text-2xl font-sfBold text-gray-400">{experience.position}</p>
+                            <p className="text-2xl font-sfRegular">
+                                {experience.startDate} {experience.endDate === "N/A" ? (
+                                    <span />
+                                ) : experience.endDate === "Now" ? (
+                                    <span>
+                                        <span> - </span>
+                                        <span className="text-[#0071E3]">Now</span>
+                                    </span>
 
-                <ParallaxLayer offset={1.5} speed={1.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
-                    <div className={"flex justify-center items-center h-[10rem] w-[25%] text-center rounded-[10px] mr-[15%] bg-red"}>
-                        <p>I'm not</p>
-                    </div>
-                </ParallaxLayer>
+                                ) : (
+                                    <span> - {experience.endDate} </span>
+                                )}
+                            </p>
 
-                <ParallaxLayer offset={2.5} speed={1.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
-                    <div className={`flex justify-center items-center h-[10rem] w-[25%] text-center rounded-[10px] mr-[15%] bg-purple`}>
-                        <p>Neither am I</p>
-                    </div>
-                </ParallaxLayer>
-
-                <ParallaxLayer offset={4} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' }}>
-                    <p className="text-white">Experience</p>
-                </ParallaxLayer>
-            </Parallax>
+                            <ul className="text-lg font-sfRegular mt-3">
+                                {experience.bullets.map((bullet, idx) => (
+                                    <motion.li
+                                        key={idx}
+                                        className="relative before:content-['●'] before:relative before:pr-2 before:text-xs before:text-white"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.3, delay: idx * 0.08 }}
+                                    >
+                                        {bullet}
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+            <div className="h-[30vh]" />
         </div>
     );
 
 };
+
+/*
+const useElementOnScreen = (options) => {
+    const containerRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const callbackFunction = (entries) => {
+        const [entry] = entries
+        setIsVisible(entry.isIntersecting)
+    }
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(callbackFunction, options)
+        if (containerRef.current) {
+            observer.observe(containerRef.current)
+        }
+
+        return () => {
+            if (containerRef.current) {
+                observer.unobserve(containerRef.current)
+            }
+        }
+    }, [containerRef, options])
+
+    return [containerRef, isVisible]
+}
+*/
 
 
 
