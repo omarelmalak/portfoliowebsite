@@ -138,7 +138,7 @@ const Experiences: React.FC = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
             >
                 <h1 className="text-6xl font-sfBold tracking-tight">Experience</h1>
-                <p className="text-4xl font-sfBold tracking-wide text-gray-400 mt-2">There is no substitute.</p>
+                <p className="text-4xl font-sfBold text-gray-400 mt-2">There is no substitute.</p>
             </motion.div>
 
             <div className="h-[9vh]"></div>
