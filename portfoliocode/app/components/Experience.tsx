@@ -7,10 +7,6 @@ import {
     useMotionTemplate,
 } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import {
-    MyEdMasterCard, MyEdMasterLogo,
-    GeotabCard, GeotabLogo
-} from "./CardsAndLogos";
 
 interface Experience {
     companyName: string;
