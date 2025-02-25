@@ -7,6 +7,10 @@ import {
     useMotionTemplate,
 } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import {
+    MyEdMasterCard, MyEdMasterLogo,
+    GeotabCard, GeotabLogo
+} from "./CardsAndLogos";
 
 interface Experience {
     companyName: string;
@@ -14,6 +18,11 @@ interface Experience {
     startDate: string;
     endDate: string;
     bullets: string[];
+    color: string;
+    companySummary: string;
+    demoPath: string;
+    logoPath: string;
+    website: string;
 }
 
 
@@ -22,14 +31,24 @@ const Experiences: React.FC = () => {
         companyName: "MyEdMaster", position: "Software Engineering Team Lead", startDate: "January 2025", endDate: "Now",
         bullets:
             ["Leading a team of 7 software engineers to complete a digital transformation of the startup’s tutoring service.",
-                "Designed, implemented, and deployed an AI-powered database management system for tutors using Cohere API."]
+                "Designed, implemented, and deployed an AI-powered database management system for tutors using Cohere API."],
+        color: "#EF5815",
+        companySummary: "Virginia-based tutoring platform leveraging automation to enhance learning.",
+        demoPath: "/assets/MyEdMasterDemo.png",
+        logoPath: "/assets/MyEdMaster.png",
+        website: "https://www.myedmaster.com/"
     }
 
     const googleDevGroup: Experience = {
         companyName: "Google Developer Group (University of Toronto)", position: "Director of Operations", startDate: "October 2024", endDate: "Now",
         bullets:
             ["Leading the operations and marketing teams of 11 associates to host events (i.e. Women in Tech).",
-                "Facilitating outreach to companies and industry professionals to engage and share insights at our events."]
+                "Facilitating outreach to companies and industry professionals to engage and share insights at our events."],
+        color: "#4285F4",
+        companySummary: "Student-led community backed by Google Developers.",
+        demoPath: "/assets/GoogleDemo2.mp4",
+        logoPath: "/assets/Google.png",
+        website: "https://gdg.community.dev/gdg-on-campus-university-of-toronto-st-george-campus-toronto-canada/"
     }
 
     const teachingAssistant: Experience = {
@@ -38,7 +57,12 @@ const Experiences: React.FC = () => {
             "Hosted tutorial sessions each week with 30+ registered students.",
             "In charge of curating the team’s interactive visual teaching material and algorithm demonstrations each week.",
             "Hosted in-person morning office hours and offered online student forum feedback using Piazza."
-        ]
+        ],
+        color: "#002F65",
+        companySummary: "Globally recognized top 10 institution in computer science.",
+        demoPath: "/assets/uoftDemo.mp4",
+        logoPath: "/assets/uoft.png",
+        website: "https://www.utoronto.ca/"
     }
 
     const geotab: Experience = {
@@ -48,7 +72,12 @@ const Experiences: React.FC = () => {
                 "Worked as an Agile/Kanban backend engineer on the OEM Integration Team, deploying .NET (C#) updates for thousands of vehicles across NA, EU, and LatAM from 7 globally recognized partners.",
                 "Conducted a JSON parser optimization project, achieving 80% memory improvement on a specific data type and documented findings in a published, engineer-backed benchmark report.",
                 "Created an OEM device activation system with error handling and retry scheduling, impacting 200+ trucks in NA.",
-                "Hosted and presented at a Data Platform demo session to an audience of 30+ engineers and senior business management, using UML diagrams to illustrate API handler interactions for a codebase migration project."]
+                "Hosted and presented at a Data Platform demo session to an audience of 30+ engineers and senior business management, using UML diagrams to illustrate API handler interactions for a codebase migration project."],
+        color: "#2D4677",
+        companySummary: "The world's leading commercial telematics provider.",
+        demoPath: "/assets/GeotabDemo.png",
+        logoPath: "/assets/Geotab.png",
+        website: "https://www.geotab.com/"
     }
 
     const grubtech: Experience = {
@@ -57,7 +86,12 @@ const Experiences: React.FC = () => {
             "Designed and implemented a comprehensive mobile application guide to onboard clients on application launch.",
             "Enhanced clients’ visibility to company-specific statistical insights through new UI overlay elements.",
             "Solved and pushed bug-fixes that improved cross-device (iOS and Android) application responsiveness."
-        ]
+        ],
+        color: "#1C1C1E",
+        companySummary: "The Middle East's leading all-in-one F&B integration platform.",
+        demoPath: "/assets/GrubDemo.mp4",
+        logoPath: "/assets/Grubtech.png",
+        website: "https://www.grubtech.com/"
     }
 
     const spiderSilk: Experience = {
@@ -65,15 +99,26 @@ const Experiences: React.FC = () => {
         bullets: ["Worked with the AI and Data Science Team to develop data cleaning and bucketing strategies in Python, supporting the company’s asset allocation ML models used to safeguard global brands’ digital assets.",
             "Developed and delivered an engaging slide deck to educate students on internet safety on behalf of the company.",
             "Refined the statistics and machine learning recruitment assessments to enhance candidate evaluation accuracy."
-        ]
+        ],
+        color: "#ed2a66",
+        companySummary: "Leading cyber threat detection and AI-powered security platform in the Middle East.",
+        demoPath: "/assets/spiderDemo.png",
+        logoPath: "/assets/spiderSilk.png",
+        website: "https://spidersilk.com/"
     }
 
     const microsoft: Experience = {
         companyName: "Microsoft", position: "Internet of Things (IoT) Intern", startDate: "July 2019", endDate: "N/A",
         bullets: ["Worked with the government and smart cities team and attended government sales meetings to absorb pitching, negotiation, and quick-thinking skills.",
             "Completed cloud computing tasks using Microsoft Azure and practiced IoT assignments using Raspberry Pi."
-        ]
+        ],
+        color: "#F25022",
+        companySummary: "Global leader in IoT using Azure's cloud and AI capabilities.",
+        demoPath: "/assets/MicrosoftDemo.png",
+        logoPath: "/assets/Microsoft.png",
+        website: "https://azure.microsoft.com/en-ca/products/iot-hub/?ef_id=_k_Cj0KCQiA8fW9BhC8ARIsACwHqYrP80hbQRDkch_wA8MSNdMSe9iZvm0hnJVs5qHUconyRWD_t13tj_waAix-EALw_wcB_k_&OCID=AIDcmmqz3gd78m_SEM__k_Cj0KCQiA8fW9BhC8ARIsACwHqYrP80hbQRDkch_wA8MSNdMSe9iZvm0hnJVs5qHUconyRWD_t13tj_waAix-EALw_wcB_k_&gad_source=1&gclid=Cj0KCQiA8fW9BhC8ARIsACwHqYrP80hbQRDkch_wA8MSNdMSe9iZvm0hnJVs5qHUconyRWD_t13tj_waAix-EALw_wcB"
     }
+
     const experienceList = [
         myEdMaster,
         googleDevGroup,
@@ -91,7 +136,7 @@ const Experiences: React.FC = () => {
             threshold: 1
         })
         */
-    const [visibleIndex, setVisibleIndex] = useState<number | null>(null);
+    const [visibleIndex, setVisibleIndex] = useState<number | null>(0);
     const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
     useEffect(() => {
@@ -145,24 +190,89 @@ const Experiences: React.FC = () => {
 
             <div className="h-[9vh]"></div>
 
-            <motion.div
-                className="relative sticky top-[30vh] left-[10vw] bg-[#2D4677] rounded-[16px] h-[50vh] w-[27vw]"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-            />
-            <motion.div
-                className="relative sticky top-[74vh] left-[34vw] bg-white rounded-[100px] shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-[6vw] max-h-[10vh]"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-            >
-                <img
-                    src="/assets/Geotab.png"
-                    alt="Your Description"
-                    className="rounded-[100px] max-w-[6vw] max-h-[10vh] object-cover"
-                />
-            </motion.div>
+
+
+
+
+
+            {visibleIndex !== null && experienceList[visibleIndex] ? (
+                <>
+                    <motion.div
+                        className={`relative sticky top-[30vh] left-[10vw] rounded-[16px] h-[50vh] w-[27vw] flex flex-col items-center justify-center gap-4`}
+                        style={{
+                            backgroundColor: experienceList[visibleIndex]?.color || "#ffffff",
+                            boxShadow: '0px -2px 20px rgba(255, 255, 255, 0.25)',
+                        }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                        <p className="text-3xl font-sfBold text-white text-center">
+                            {experienceList[visibleIndex]?.companySummary}
+                        </p>
+
+                        {experienceList[visibleIndex]?.demoPath?.endsWith(".mp4") ? (
+                            <motion.video
+                                src={experienceList[visibleIndex]?.demoPath}
+                                loop
+                                autoPlay
+                                muted
+                                className="rounded-[16px] max-w-[24vw] max-h-[30vh]"
+                                initial={{ scale: 0.95 }}
+                                animate={{ scale: 1 }}
+                                transition={{ duration: 0.3 }}
+                            />
+                        ) : (
+                            <motion.img
+                                src={experienceList[visibleIndex]?.demoPath}
+                                className="rounded-[16px] max-w-[24vw] max-h-[30vh]"
+                                initial={{ opacity: 0.95 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                            />
+                        )}
+                    </motion.div>
+
+                    <motion.div
+                        className="relative sticky top-[75vh] left-[34vw] bg-white rounded-full shadow-lg transition-all duration-500 ease-out transform flex items-center justify-center w-[6vw] h-[6vh] hover:scale-110 hover:shadow-xl hover:cursor-pointer"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+
+                        <motion.img
+                            src={experienceList[visibleIndex]?.logoPath}
+                            className="rounded-full object-contain h-[6vh] w-auto bg-white transition-all duration-500 ease-out"
+                            initial={{ scale: 0.8 }}
+                            animate={{ scale: 1 }}
+                            transition={{ duration: 0.3 }}
+                        />
+
+                    </motion.div>
+
+
+
+                </>
+            ) : (
+                <motion.div
+                    className={`relative sticky top-[30vh] left-[10vw] bg-white rounded-[16px] h-[50vh] w-[27vw] flex flex-col items-center justify-center gap-4`}
+                    style={{
+                        boxShadow: '0px -2px 20px rgba(255, 255, 255, 0.25)',
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                >
+
+                </motion.div>
+            )
+            }
+
+
+
+
+
+
 
 
 
@@ -183,6 +293,7 @@ const Experiences: React.FC = () => {
                         }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
+
                         {/* Experience Text */}
                         <div className="w-full">
                             <h1 className="text-4xl font-sfBold tracking-tight">{experience.companyName}</h1>
@@ -219,7 +330,7 @@ const Experiences: React.FC = () => {
                 ))}
             </div>
             <div className="h-[30vh]" />
-        </div>
+        </div >
     );
 
 };
@@ -249,6 +360,7 @@ const useElementOnScreen = (options) => {
     return [containerRef, isVisible]
 }
 */
+
 
 
 
