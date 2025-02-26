@@ -14,6 +14,7 @@ const Website: React.FC = () => {
     <div>
       <Hero />
       <Experience />
+      <div className="h-[30vh] bg-black" />
       <ComingSoon />
     </div>
   );

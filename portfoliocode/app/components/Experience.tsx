@@ -336,6 +336,7 @@ const Experiences: React.FC = () => {
             </div>
             <div className="h-[30vh]" />
         </div >
+
     );
 
 };
