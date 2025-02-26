@@ -151,14 +151,11 @@ const Experiences: React.FC = () => {
             });
         };
 
-        // Add event listeners for scroll and resize events
         window.addEventListener("scroll", checkVisibility);
         window.addEventListener("resize", checkVisibility);
 
-        // Initial check in case the page is already scrolled
         checkVisibility();
 
-        // Cleanup listeners on unmount
         return () => {
             window.removeEventListener("scroll", checkVisibility);
             window.removeEventListener("resize", checkVisibility);
@@ -166,7 +163,6 @@ const Experiences: React.FC = () => {
     }, []);
     const [isScrolled, setIsScrolled] = useState(false);
 
-    // Detect if the user has scrolled into the component
     useEffect(() => {
         const handleScroll = () => {
             const sectionTop = document.getElementById('experience-section')?.offsetTop;
