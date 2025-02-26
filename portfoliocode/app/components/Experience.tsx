@@ -180,7 +180,7 @@ const Experiences: React.FC = () => {
     }, []);
 
     return (
-        <div className="relative min-h-screen max-w-screen flex flex-col bg-black h-full">
+        <div className="relative min-h-screen max-w-screen flex flex-col bg-black h-full text-white">
             <div className="relative sticky top-0 left-[70vw] w-[300px] h-[300px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
             <div className="relative sticky top-[60vh] left-[10vw] w-[500px] h-[300px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
 
