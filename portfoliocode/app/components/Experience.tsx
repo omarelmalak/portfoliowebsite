@@ -164,10 +164,27 @@ const Experiences: React.FC = () => {
             window.removeEventListener("resize", checkVisibility);
         };
     }, []);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    // Detect if the user has scrolled into the component
+    useEffect(() => {
+        const handleScroll = () => {
+            const sectionTop = document.getElementById('experience-section')?.offsetTop;
+            const scrollPosition = window.scrollY;
+
+            if (sectionTop && scrollPosition > sectionTop) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <div className="relative min-h-screen max-w-screen flex flex-col bg-black h-full">
-            <div className="absolute w-full h-full bg-green" />
             <div className="relative sticky top-0 left-[70vw] w-[300px] h-[300px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
             <div className="relative sticky top-[60vh] left-[10vw] w-[500px] h-[300px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
 
