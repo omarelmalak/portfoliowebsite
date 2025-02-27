@@ -164,13 +164,23 @@ const Experiences: React.FC = () => {
 
 
     const [imageLoaded, setImageLoaded] = useState(false);
+    console.log("Image is:", imageLoaded);
 
     useEffect(() => {
-        setImageLoaded(false);
+        console.log(visibleIndex);
+        if (visibleIndex === 0) {
+            setImageLoaded(true);
+        } else {
+            setImageLoaded(false);
+        }
+
+
     }, [visibleIndex]);
 
 
     const handleImageLoad = () => {
+        console.log("Image Loaded");
+
         setImageLoaded(true);
     };
 
@@ -219,7 +229,7 @@ const Experiences: React.FC = () => {
                             key={visibleIndex}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: imageLoaded ? 1 : 0 }}
-                            transition={{ duration: 1.2, ease: "easeOut" }}>
+                            transition={{ duration: 1, ease: "easeOut" }}>
 
                             <p className="text-3xl font-sfBold text-white text-center max-w-[28vw]">
                                 {experienceList[visibleIndex]?.companySummary}
