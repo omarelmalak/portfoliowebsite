@@ -7,7 +7,7 @@ import { MdEmail } from 'react-icons/md';
 
 
 const Hero: React.FC = () => {
-    const [rotation, setRotation] = useState({ x: 0, y: 0 });
+    const [rotation, setRotation] = useState({ x: -5, y: 3 });
 
     const handleMouseMove = (event: React.MouseEvent) => {
         const element = document.querySelector('.avatar-container');
