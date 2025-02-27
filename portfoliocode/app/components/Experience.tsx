@@ -268,6 +268,8 @@ const Experiences: React.FC = () => {
                     </motion.div>
                     <a
                         href={experienceList[visibleIndex]?.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="relative sticky top-[76vh] left-[37vw] bg-white rounded-full shadow-lg transition-all duration-500 ease-out transform flex items-center justify-center max-w-[8vw] h-[8vh] hover:scale-110 hover:shadow-xl hover:cursor-pointer inline-flex"
 
                     >
