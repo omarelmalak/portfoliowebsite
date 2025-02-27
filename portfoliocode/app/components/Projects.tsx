@@ -199,7 +199,7 @@ const Projects: React.FC = () => {
     return (
         <div className="relative min-h-screen max-w-[100vw] overflow-x-hidden flex flex-col bg-yellow h-full">
             <div className="absolute left-[0vw] top-[30vh] w-[300px] h-[460px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
-            <div className="absolute left-[60vw] top-[0vh] w-[460px] h-[370px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
+            <div className="absolute left-[60vw] top-[15vh] w-[460px] h-[370px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
             <div className="absolute left-[40vw] top-[60vh] w-[380px] h-[300px] bg-gradient-to-r from-[#F7D1A4] to-[#F4F1A1] rounded-full opacity-20 blur-3xl animate-right-hero" />
 
             <motion.div
