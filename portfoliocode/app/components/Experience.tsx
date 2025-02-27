@@ -161,23 +161,18 @@ const Experiences: React.FC = () => {
             window.removeEventListener("resize", checkVisibility);
         };
     }, []);
-    const [isScrolled, setIsScrolled] = useState(false);
+
+
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            const sectionTop = document.getElementById('experience-section')?.offsetTop;
-            const scrollPosition = window.scrollY;
+        setImageLoaded(false);
+    }, [visibleIndex]);
 
-            if (sectionTop && scrollPosition > sectionTop) {
-                setIsScrolled(true);
-            } else {
-                setIsScrolled(false);
-            }
-        };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+    };
 
     return (
         <div className="relative min-h-screen max-w-screen flex flex-col bg-black h-full">
@@ -223,8 +218,8 @@ const Experiences: React.FC = () => {
                             className="flex flex-col items-center justify-center gap-[3vh]"
                             key={visibleIndex}
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}>
+                            animate={{ opacity: imageLoaded ? 1 : 0 }}
+                            transition={{ duration: 1.2, ease: "easeOut" }}>
 
                             <p className="text-3xl font-sfBold text-white text-center max-w-[28vw]">
                                 {experienceList[visibleIndex]?.companySummary}
@@ -241,6 +236,8 @@ const Experiences: React.FC = () => {
                                     initial={{ scale: 0.95 }}
                                     animate={{ scale: 1 }}
                                     transition={{ duration: 0.3 }}
+                                    onCanPlay={handleImageLoad}
+
                                 />
                             ) : (
                                 <motion.img
@@ -250,12 +247,15 @@ const Experiences: React.FC = () => {
                                     initial={{ opacity: 0.95 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ duration: 0.3 }}
+                                    onLoad={handleImageLoad} // Trigger handleImageLoad when the image has loaded
                                 />
                             )}
                         </motion.div>
 
-                    </motion.div>
 
+
+
+                    </motion.div>
                     <a
                         href={experienceList[visibleIndex]?.website}
                         className="relative sticky top-[76vh] left-[37vw] bg-white rounded-full shadow-lg transition-all duration-500 ease-out transform flex items-center justify-center max-w-[8vw] h-[8vh] hover:scale-110 hover:shadow-xl hover:cursor-pointer inline-flex"
