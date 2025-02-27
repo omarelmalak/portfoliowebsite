@@ -164,18 +164,22 @@ const Projects: React.FC = () => {
 
 
 
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [screenWidth, setScreenWidth] = useState(0);
 
     useEffect(() => {
-        const handleResize = () => {
+        if (typeof window !== 'undefined') {
             setScreenWidth(window.innerWidth);
-        };
 
-        window.addEventListener('resize', handleResize);
+            const handleResize = () => {
+                setScreenWidth(window.innerWidth);
+            };
 
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+            window.addEventListener('resize', handleResize);
+
+            return () => {
+                window.removeEventListener('resize', handleResize);
+            };
+        }
     }, []);
 
     const dragLeft = -(screenWidth * 1.05);
