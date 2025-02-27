@@ -31,8 +31,17 @@ const Website: React.FC = () => {
         <Experience />
       </motion.div>
 
-      <div className="h-[30vh] bg-black" />
-      <ComingSoon />
+      <motion.div
+        className="relative min-h-screen max-w-screen flex flex-col bg-black h-full"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{ duration: 1, ease: "easeOut" }}>
+        <ComingSoon />
+      </motion.div>
+
+
     </div>
   );
 };
