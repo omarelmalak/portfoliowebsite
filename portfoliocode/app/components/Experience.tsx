@@ -303,7 +303,7 @@ const Experiences: React.FC = () => {
             <div className="w-full flex flex-col items-end pr-[10vw]">
                 {experienceList.map((experience, index) => (
                     <motion.div
-                        className={`flex flex-col text-left max-w-[40vw] mt-24 transition-opacity duration-300`}
+                        className={`flex flex-col text-left max-w-[40vw] mt-20 transition-opacity duration-300`}
                         key={index}
                         ref={(el: HTMLDivElement | null) => { itemRefs.current[index] = el; }}
                         style={{
@@ -314,7 +314,7 @@ const Experiences: React.FC = () => {
                             opacity: visibleIndex === index ? 1 : 0.4,
                             x: 0,
                         }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        transition={{ duration: 0.5 }}
                     >
 
                         <div className="w-full">
