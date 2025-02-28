@@ -113,7 +113,7 @@ const Projects: React.FC = () => {
     const scriptorium: Project = {
         title: "Scriptorium",
         summary: "A hybrid between Piazza, Reddit, and GitHub, allowing users to share their code ideas with the world.",
-        technologies: ["/assets/technologies/prisma.png", "/assets/technologies/sqlite.png", "/assets/technologies/javascript.png", "/assets/technologies/typescript.png", "/assets/technologies/docker.png", "/assets/technologies/react.png", "/assets/technologies/nextjs.png"],
+        technologies: ["/assets/technologies/prisma.png", "/assets/technologies/sqlite.png", "/assets/technologies/javascript.png", "/assets/technologies/typescript.png", "/assets/technologies/docker.png", "/assets/technologies/react.png", "/assets/technologies/nextjs.png", "/assets/technologies/postman.png"],
         demoPath: "/assets/projectdemos/scriptoriumdemo.png",
         githubLink: "https://github.com/omarelmalak/Scriptorium",
         width: "15vw",
@@ -123,10 +123,23 @@ const Projects: React.FC = () => {
         bottom: 60
     }
 
+    const pca: Project = {
+        title: "AI Lab Inc.",
+        summary: "A student exam score prediction report with multiple AI models using mock Khan Academy data.",
+        technologies: ["/assets/technologies/numpy.png", "/assets/technologies/tensorflow.png", "/assets/technologies/pandas.png"],
+        demoPath: "/assets/projectdemos/pcademo.png",
+        githubLink: "https://github.com/omarelmalak/AILabInc",
+        width: "15vw",
+        height: "15vh",
+        marginTop: "4vh",
+        scale: "0.9",
+        bottom: 30
+    }
+
     const flare: Project = {
         title: "flare.",
         summary: "A social media platform for you to share your hot takes (unpopular opinions) with your friends.",
-        technologies: ["/assets/technologies/supabase.png", "/assets/technologies/django.png", "/assets/technologies/figma.png", "/assets/technologies/reactnative.png", "/assets/technologies/sqlite.png"],
+        technologies: ["/assets/technologies/supabase.png", "/assets/technologies/django.png", "/assets/technologies/figma.png", "/assets/technologies/reactnative.png", "/assets/technologies/sqlite.png", "/assets/technologies/expo.png"],
         demoPath: "/assets/projectdemos/flaredemo.png",
         githubLink: "https://github.com/amr-radwan1/opinions-frontend",
         width: "15vw",
@@ -153,6 +166,7 @@ const Projects: React.FC = () => {
     const projects = [
         roadmapr,
         flare,
+        pca,
         scriptorium,
         ufc,
         playfair,
@@ -182,7 +196,7 @@ const Projects: React.FC = () => {
         }
     }, []);
 
-    const dragLeft = -(screenWidth * 1.05);
+    const dragLeft = -(screenWidth * 1.3);
     const dragRight = 0;
 
     // const sliderRef = useRef<Slider | null>(null);

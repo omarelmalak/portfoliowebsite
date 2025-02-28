@@ -2,13 +2,13 @@
 import Hero from "./components/Hero";
 import Experiences from "./components/Experience";
 import Projects from "./components/Projects";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useScroll } from "framer-motion";
 import ComingSoon from "./components/ComingSoon";
+import Lenis from "lenis";
 
 
 const Website: React.FC = () => {
-
 
   return (
     <div className="bg-black">
