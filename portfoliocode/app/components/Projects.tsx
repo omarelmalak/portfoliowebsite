@@ -113,7 +113,7 @@ const Projects: React.FC = () => {
     const scriptorium: Project = {
         title: "Scriptorium",
         summary: "A hybrid between Piazza, Reddit, and GitHub, allowing users to share their code ideas with the world.",
-        technologies: ["/assets/technologies/framelibs/prisma.png", "/assets/technologies/framelibs/sqlite.png", "/assets/technologies/devtools/postman.png", "/assets/technologies/devtools/docker.png", "/assets/technologies/framelibs/react.png", "/assets/technologies/framelibs/nextjs.png"],
+        technologies: ["/assets/technologies/framelibs/prisma.png", "/assets/technologies/framelibs/sqlite.png", "/assets/technologies/devtools/postman.png", "/assets/technologies/devtools/docker.png", "/assets/technologies/framelibs/react.png"],
         demoPath: "/assets/projectdemos/scriptoriumdemo.png",
         githubLink: "https://github.com/omarelmalak/Scriptorium",
         width: "15vw",
@@ -152,7 +152,7 @@ const Projects: React.FC = () => {
     const roadmapr: Project = {
         title: "Roadmapr",
         summary: "An AI-powered career planning tool that analyzes resumes to generate personalized career roadmaps.",
-        technologies: ["/assets/technologies/framelibs/flask.png", "/assets/technologies/framelibs/cohere.png", "/assets/technologies/framelibs/nextjs.png", "/assets/technologies/framelibs/framermotion.png", "/assets/technologies/devtools/supabase.png"],
+        technologies: ["/assets/technologies/framelibs/flask.png", "/assets/technologies/framelibs/cohere.png", "/assets/technologies/framelibs/react.png", "/assets/technologies/framelibs/nextjs.png", "/assets/technologies/framelibs/framermotion.png", "/assets/technologies/devtools/supabase.png"],
         demoPath: "/assets/projectdemos/roadmaprdemo.png",
         githubLink: "https://github.com/omarelmalak/deerhacks2025",
         width: "15vw",
