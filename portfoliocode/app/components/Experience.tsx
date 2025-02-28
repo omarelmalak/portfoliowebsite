@@ -351,7 +351,7 @@ const Experiences: React.FC = () => {
                     </motion.div>
                 ))}
             </div>
-            <div className="h-[30vh]" />
+            <div className="h-[10vh]" />
         </div >
     );
 
