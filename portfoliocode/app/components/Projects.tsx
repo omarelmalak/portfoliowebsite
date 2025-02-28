@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
     const sokoban: Project = {
         title: "Sokoban",
         summary: "An implementation of the popular Sokoban video game.",
-        technologies: ["/assets/technologies/assembly.png"],
+        technologies: ["/assets/technologies/languages/assembly.png"],
         demoPath: "/assets/projectdemos/sokobandemo.png",
         githubLink: "https://github.com/omarelmalak/SokobanGame",
         width: "18vw",
@@ -48,7 +48,7 @@ const Projects: React.FC = () => {
     const md5: Project = {
         title: "MD5 Password Hasher",
         summary: "An implementation of the MD5 Hashing algorithm for efficient password validation and security.",
-        technologies: ["/assets/technologies/python.png"],
+        technologies: ["/assets/technologies/languages/python.png"],
         demoPath: "/assets/projectdemos/md5demo.png",
         githubLink: "https://github.com/omarelmalak/MD5HashingProject",
         width: "15vw",
@@ -61,7 +61,7 @@ const Projects: React.FC = () => {
     const fortcraft: Project = {
         title: "FortCraft",
         summary: "An adventure video game created with 4 design patterns.",
-        technologies: ["/assets/technologies/java.png", "/assets/technologies/javafx.png"],
+        technologies: ["/assets/technologies/languages/java.png", "/assets/technologies/framelibs/javafx.png"],
         demoPath: "/assets/projectdemos/fortcraftdemo.png",
         githubLink: "https://github.com/omarelmalak/FortCraftGame",
         width: "19vw",
@@ -74,7 +74,7 @@ const Projects: React.FC = () => {
     const estimap: Project = {
         title: "EstiMap",
         summary: "An AI-powered app aimed to provide a predictive forecast on housing prices.",
-        technologies: ["/assets/technologies/reactnative.png", "/assets/technologies/scikit.png", "/assets/technologies/typescript.png", "/assets/technologies/javascript.png", "/assets/technologies/googlemaps.png", "/assets/technologies/figma.png"],
+        technologies: ["/assets/technologies/languages/typescript.png", "/assets/technologies/languages/javascript.png", "/assets/technologies/framelibs/reactnative.png", "/assets/technologies/framelibs/scikit.png", "/assets/technologies/framelibs/googlemaps.png", "/assets/technologies/devtools/figma.png"],
         demoPath: "/assets/projectdemos/estimapdemo2.png",
         githubLink: "https://github.com/omarelmalak/EstiMap",
         width: "15vw",
@@ -87,7 +87,7 @@ const Projects: React.FC = () => {
     const playfair: Project = {
         title: "Playfair Cipher",
         summary: "An implementation of the Playfair Cipher with examples.",
-        technologies: ["/assets/technologies/python.png"],
+        technologies: ["/assets/technologies/languages/python.png"],
         demoPath: "/assets/projectdemos/playfairdemo.png",
         githubLink: "https://github.com/omarelmalak/PlayfairCipher",
         width: "15vw",
@@ -98,9 +98,9 @@ const Projects: React.FC = () => {
     }
 
     const ufc: Project = {
-        title: "UFC Fight Predictor",
+        title: "UFC Predictor",
         summary: "A webscraper + AI project that predicts UFC fight outcomes based on past performances.",
-        technologies: ["/assets/technologies/tensorflow.png", "/assets/technologies/pandas.png", "/assets/technologies/beautifulsoup.png", "/assets/technologies/scikit.png"],
+        technologies: ["/assets/technologies/framelibs/tensorflow.png", "/assets/technologies/framelibs/pandas.png", "/assets/technologies/framelibs/beautifulsoup.png", "/assets/technologies/framelibs/scikit.png"],
         demoPath: "/assets/projectdemos/ufcdemo.png",
         githubLink: "https://github.com/omarelmalak/UFCPredictor",
         width: "15vw",
@@ -113,7 +113,7 @@ const Projects: React.FC = () => {
     const scriptorium: Project = {
         title: "Scriptorium",
         summary: "A hybrid between Piazza, Reddit, and GitHub, allowing users to share their code ideas with the world.",
-        technologies: ["/assets/technologies/prisma.png", "/assets/technologies/sqlite.png", "/assets/technologies/javascript.png", "/assets/technologies/typescript.png", "/assets/technologies/docker.png", "/assets/technologies/react.png", "/assets/technologies/nextjs.png", "/assets/technologies/postman.png"],
+        technologies: ["/assets/technologies/framelibs/prisma.png", "/assets/technologies/framelibs/sqlite.png", "/assets/technologies/devtools/postman.png", "/assets/technologies/devtools/docker.png", "/assets/technologies/framelibs/react.png", "/assets/technologies/framelibs/nextjs.png"],
         demoPath: "/assets/projectdemos/scriptoriumdemo.png",
         githubLink: "https://github.com/omarelmalak/Scriptorium",
         width: "15vw",
@@ -126,7 +126,7 @@ const Projects: React.FC = () => {
     const pca: Project = {
         title: "AI Lab Inc.",
         summary: "A student exam score prediction report with multiple AI models using mock Khan Academy data.",
-        technologies: ["/assets/technologies/numpy.png", "/assets/technologies/tensorflow.png", "/assets/technologies/pandas.png"],
+        technologies: ["/assets/technologies/languages/python.png", "/assets/technologies/framelibs/numpy.png", "/assets/technologies/framelibs/tensorflow.png", "/assets/technologies/framelibs/pandas.png"],
         demoPath: "/assets/projectdemos/pcademo.png",
         githubLink: "https://github.com/omarelmalak/AILabInc",
         width: "15vw",
@@ -139,7 +139,7 @@ const Projects: React.FC = () => {
     const flare: Project = {
         title: "flare.",
         summary: "A social media platform for you to share your hot takes (unpopular opinions) with your friends.",
-        technologies: ["/assets/technologies/supabase.png", "/assets/technologies/django.png", "/assets/technologies/figma.png", "/assets/technologies/reactnative.png", "/assets/technologies/sqlite.png", "/assets/technologies/expo.png"],
+        technologies: ["/assets/technologies/languages/typescript.png", "/assets/technologies/devtools/supabase.png", "/assets/technologies/framelibs/django.png", "/assets/technologies/devtools/figma.png", "/assets/technologies/framelibs/reactnative.png", "/assets/technologies/framelibs/sqlite.png", "/assets/technologies/devtools/expo.png"],
         demoPath: "/assets/projectdemos/flaredemo.png",
         githubLink: "https://github.com/amr-radwan1/opinions-frontend",
         width: "15vw",
@@ -152,7 +152,7 @@ const Projects: React.FC = () => {
     const roadmapr: Project = {
         title: "Roadmapr",
         summary: "An AI-powered career planning tool that analyzes resumes to generate personalized career roadmaps.",
-        technologies: ["/assets/technologies/flask.png", "/assets/technologies/nextjs.png", "/assets/technologies/framermotion.png", "/assets/technologies/supabase.png"],
+        technologies: ["/assets/technologies/framelibs/flask.png", "/assets/technologies/framelibs/cohere.png", "/assets/technologies/framelibs/nextjs.png", "/assets/technologies/framelibs/framermotion.png", "/assets/technologies/devtools/supabase.png"],
         demoPath: "/assets/projectdemos/roadmaprdemo.png",
         githubLink: "https://github.com/omarelmalak/deerhacks2025",
         width: "15vw",
@@ -207,7 +207,7 @@ const Projects: React.FC = () => {
 
 
 
-    const colors = ["#CEA594", "#E3F0FE", "#BCE491", "#FFF3F7"];
+    const colors = ["#FFF3F7", "#E3F0FE", "#CEA594", "#BCE491"];
 
 
     return (
@@ -238,7 +238,7 @@ const Projects: React.FC = () => {
                 {projects.map((project, i) => (
                     <motion.div
                         key={i}
-                        className="flex-col h-[60vh] min-w-[20vw] max-w-[20vw] overflow-hidden rounded-2xl text-white flex hover:scale-110 hover:shadow-xl hover:cursor-pointer shadow-lg transition-all duration-500 ease-out transform"
+                        className="group flex-col h-[60vh] min-w-[20vw] max-w-[20vw] overflow-hidden rounded-2xl text-white flex hover:scale-110 hover:shadow-xl hover:cursor-pointer shadow-lg transition-all duration-500 ease-out transform"
                         style={{
                             marginLeft: i === 0 ? "10vw" : "0",
                             background: `linear-gradient(to bottom, ${colors[i % colors.length]} 0%, #FFFFFF 100%)`,
@@ -271,6 +271,24 @@ const Projects: React.FC = () => {
                         >
                             <FaGithub size={40} className="text-white" />
                         </a>
+
+
+                        <div className=" absolute top-[3vh] right-[1.3vw] flex gap-x-2">
+                            {project.technologies.map((technology, j) => (
+
+                                <img
+                                    key={j}
+                                    className="w-[1.3vw] max-h-[3vh] opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+                                    style={{ transitionDelay: `${j * 100}ms` }}
+                                    src={technology}
+                                />
+
+                            ))}
+                        </div>
+
+
+
+
 
 
                     </motion.div>
