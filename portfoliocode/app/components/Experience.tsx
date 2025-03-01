@@ -200,104 +200,88 @@ const Experiences: React.FC = () => {
             >
                 <h1 className="text-6xl font-sfBold tracking-tigh text-white">Experience</h1>
                 <p className="text-4xl font-sfBold text-gray-400 mt-2">There is no substitute.</p>
+
+                {visibleIndex !== null && experienceList[visibleIndex] ? (
+                    <>
+                        <motion.div
+                            className="relative rounded-[16px] h-[50vh] w-[30vw] flex flex-col items-center justify-center mt-[8vh] p-[1rem]"
+                            style={{
+                                backgroundColor: experienceList[visibleIndex]?.color || "#ffffff",
+                            }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
+                            <motion.div
+                                className="flex flex-col items-center justify-center gap-[3vh] w-full h-full"
+                                key={visibleIndex}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: imageLoaded ? 1 : 0 }}
+                                transition={{ duration: 1, ease: "easeOut" }}
+                            >
+                                <p className="text-3xl sm:text-3xl xs:text-xl font-sfBold text-white text-center max-w-[90%]">
+                                    {experienceList[visibleIndex]?.companySummary}
+                                </p>
+
+                                {experienceList[visibleIndex]?.demoPath?.endsWith(".mp4") ? (
+                                    <motion.video
+                                        src={experienceList[visibleIndex]?.demoPath}
+                                        loop={visibleIndex !== 4}
+                                        autoPlay
+                                        muted
+                                        key={visibleIndex}
+                                        className="rounded-[16px] max-w-[90%] h-auto max-h-[30vh]"
+                                        initial={{ scale: 0.95 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ duration: 0.3 }}
+                                        onCanPlay={handleImageLoad}
+                                    />
+                                ) : (
+                                    <motion.img
+                                        src={experienceList[visibleIndex]?.demoPath}
+                                        key={visibleIndex}
+                                        className="rounded-[16px] max-w-[90%] h-auto max-h-[30vh]"
+                                        initial={{ opacity: 0.95 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ duration: 0.3 }}
+                                        onLoad={handleImageLoad}
+                                    />
+                                )}
+                            </motion.div>
+                            <a
+                                href={experienceList[visibleIndex]?.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute bottom-[1vh] right-[0.5vw] h-[6vh] w-[6vw] bg-white inline-flex transform flex items-center justify-center bg-[#2D2D2F] rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#2D2D2F]"
+
+                            >
+                                <img
+                                    src={experienceList[visibleIndex]?.logoPath}
+                                    className="object-contain h-[5vh] max-w-[5vw] w-auto transition-all duration-500 ease-out"
+                                />
+                            </a>
+                        </motion.div>
+
+                    </>
+                ) : (
+                    <motion.div
+                        className={`relative sticky top-[30vh] left-[10vw] bg-white rounded-[16px] h-[50vh] w-[27vw] flex flex-col items-center justify-center gap-4`}
+                        style={{
+                            boxShadow: '0px -2px 20px rgba(255, 255, 255, 0.25)',
+                        }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
+                    >
+
+                    </motion.div>
+                )
+                }
             </motion.div>
 
 
 
             <div className="h-[9vh]"></div>
-
-
-
-
-
-
-            {visibleIndex !== null && experienceList[visibleIndex] ? (
-                <>
-                    <motion.div
-
-                        className={`relative sticky top-[30vh] left-[10vw] rounded-[16px] h-[50vh] w-[30vw] center-items justify-center flex flex-col`}
-                        style={{
-                            backgroundColor: experienceList[visibleIndex]?.color || "#ffffff",
-                            // boxShadow: '0px -2px 20px rgba(255, 255, 255, 0.25)',
-                        }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                    >
-                        <motion.div
-                            className="flex flex-col items-center justify-center gap-[3vh]"
-                            key={visibleIndex}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: imageLoaded ? 1 : 0 }}
-                            transition={{ duration: 1, ease: "easeOut" }}>
-
-                            <p className="text-3xl font-sfBold text-white text-center max-w-[28vw]">
-                                {experienceList[visibleIndex]?.companySummary}
-                            </p>
-
-                            {experienceList[visibleIndex]?.demoPath?.endsWith(".mp4") ? (
-                                <motion.video
-                                    src={experienceList[visibleIndex]?.demoPath}
-                                    loop={visibleIndex !== 4}
-                                    autoPlay
-                                    muted
-                                    key={visibleIndex}
-                                    className="rounded-[16px] max-w-[28vw] max-h-[30vh]"
-                                    initial={{ scale: 0.95 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ duration: 0.3 }}
-                                    onCanPlay={handleImageLoad}
-
-                                />
-                            ) : (
-                                <motion.img
-                                    src={experienceList[visibleIndex]?.demoPath}
-                                    key={visibleIndex}
-                                    className="rounded-[16px] max-w-[24vw] max-h-[30vh]"
-                                    initial={{ opacity: 0.95 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ duration: 0.3 }}
-                                    onLoad={handleImageLoad} // Trigger handleImageLoad when the image has loaded
-                                />
-                            )}
-                        </motion.div>
-
-
-
-
-                    </motion.div>
-                    <a
-                        href={experienceList[visibleIndex]?.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative sticky top-[77vh] left-[37vw] bg-white rounded-full shadow-lg transition-all duration-500 ease-out transform flex items-center justify-center max-w-[8vw] h-[8vh] hover:scale-110 hover:shadow-xl hover:cursor-pointer inline-flex"
-
-                    >
-                        <img
-                            src={experienceList[visibleIndex]?.logoPath}
-                            className="object-contain h-[6vh] max-w-[6vw] w-auto bg-white transition-all duration-500 ease-out"
-                        />
-                    </a>
-
-
-
-
-
-                </>
-            ) : (
-                <motion.div
-                    className={`relative sticky top-[30vh] left-[10vw] bg-white rounded-[16px] h-[50vh] w-[27vw] flex flex-col items-center justify-center gap-4`}
-                    style={{
-                        boxShadow: '0px -2px 20px rgba(255, 255, 255, 0.25)',
-                    }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
-                >
-
-                </motion.div>
-            )
-            }
 
 
             <div className="w-full flex flex-col items-end pr-[10vw]">
