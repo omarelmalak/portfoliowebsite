@@ -198,7 +198,7 @@ const Experiences: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                <h1 className="text-6xl font-sfBold tracking-tight">Experience</h1>
+                <h1 className="text-6xl font-sfBold tracking-tigh text-white">Experience</h1>
                 <p className="text-4xl font-sfBold text-gray-400 mt-2">There is no substitute.</p>
             </motion.div>
 
@@ -318,9 +318,9 @@ const Experiences: React.FC = () => {
                     >
 
                         <div className="w-full">
-                            <h1 className="text-4xl font-sfBold tracking-tight">{experience.companyName}</h1>
+                            <h1 className="text-4xl font-sfBold tracking-tight text-white">{experience.companyName}</h1>
                             <p className="text-2xl font-sfBold text-gray-400">{experience.position}</p>
-                            <p className="text-2xl font-sfRegular">
+                            <p className="text-2xl font-sfRegular text-white">
                                 {experience.startDate} {experience.endDate === "N/A" ? (
                                     <span />
                                 ) : experience.endDate === "Now" ? (
@@ -334,7 +334,7 @@ const Experiences: React.FC = () => {
                                 )}
                             </p>
 
-                            <ul className="text-lg font-sfRegular mt-3">
+                            <ul className="text-lg font-sfRegular mt-3 text-white">
                                 {experience.bullets.map((bullet, idx) => (
                                     <motion.li
                                         key={idx}

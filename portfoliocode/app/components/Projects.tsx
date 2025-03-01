@@ -186,6 +186,7 @@ const Projects: React.FC = () => {
 
             const handleResize = () => {
                 setScreenWidth(window.innerWidth);
+                console.log(window.innerWidth)
             };
 
             window.addEventListener('resize', handleResize);
