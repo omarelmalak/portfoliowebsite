@@ -245,9 +245,24 @@ const Projects: React.FC = () => {
                             background: `linear-gradient(to bottom, ${colors[i % colors.length]} 0%, #FFFFFF 100%)`,
                         }}
                     >
-                        <h1 className="mt-[3vh] ml-[1.3vw] text-xl text-[#2D2D2F] font-sfSemiBold">{project.title}</h1>
+                        <div className="ml-[1.3vw] mr-[1.3vw] mt-[3vh] group flex flex-row justify-between items-center">
+                            <h1 className=" text-xl text-[#2D2D2F] font-sfSemiBold">{project.title}</h1>
+                            <div className="flex gap-x-2">
+                                {project.technologies.map((technology, j) => (
+
+                                    <img
+                                        key={j}
+                                        className="w-[1.3vw] max-h-[3vh] opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+                                        style={{ transitionDelay: `${j * 100}ms` }}
+                                        src={technology}
+                                    />
+
+                                ))}
+                            </div>
+                        </div>
                         <p className="mt-[1vh] ml-[1.3vw] text-2xl text-[#2D2D2F] font-sfBold w-full max-w-[17vw]">
                             {project.summary}</p>
+
                         <motion.img
                             src={project.demoPath}
                             key={i}
@@ -274,7 +289,7 @@ const Projects: React.FC = () => {
                         </a>
 
 
-                        <div className=" absolute top-[3vh] right-[1.3vw] flex gap-x-2">
+                        {/* <div className=" absolute top-[3vh] right-[1.3vw] flex gap-x-2">
                             {project.technologies.map((technology, j) => (
 
                                 <img
@@ -285,7 +300,7 @@ const Projects: React.FC = () => {
                                 />
 
                             ))}
-                        </div>
+                        </div> */}
 
 
 
