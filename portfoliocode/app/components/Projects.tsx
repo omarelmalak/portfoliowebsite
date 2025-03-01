@@ -224,7 +224,7 @@ const Projects: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                <h1 className="text-6xl font-sfBold tracking-tight">Projects</h1>
+                <h1 className="text-6xl font-sfBold text-white tracking-tight">Projects</h1>
                 <p className="text-4xl font-sfBold text-gray-400 mt-2">Where the magic happens.</p>
             </motion.div>
 
