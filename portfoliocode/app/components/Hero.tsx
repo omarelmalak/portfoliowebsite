@@ -30,13 +30,12 @@ const Hero: React.FC = () => {
             className="relative min-h-screen max-w-screen bg-black text-white overflow-x-hidden flex items-center justify-center px-6"
             onMouseMove={handleMouseMove}
         >
-            <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-20 blur-3xl animate-left-hero" />
+            <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl animate-left-hero" />
             <div className="absolute top-1 right-0 w-[500px] h-[500px] bg-gradient-to-r from-[#F7D1A4] from-[#F4F1A1] rounded-full opacity-35 blur-3xl animate-right-hero" />
 
-
-            <div className="flex flex-col md:flex-row items-center justify-between max-w-5xl w-full gap-12">
+            <div className="flex flex-col sm:flex-row items-center justify-between max-w-5xl w-full gap-12 sm:gap-16">
                 <motion.div
-                    className="text-center md:text-left"
+                    className="text-center sm:text-left"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
@@ -45,10 +44,11 @@ const Hero: React.FC = () => {
                     <p className="text-3xl font-sfBold text-gray-400 mt-2">Software Developer & Designer</p>
 
                     <motion.div
-                        className="flex flex-col md:flex-row max-w-5xl w-full gap-3 mt-4"
+                        className="flex flex-col sm:flex-row max-w-5xl w-full gap-3 sm:gap-5 mt-4"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}>
+                        transition={{ duration: 0.8 }}
+                    >
                         <div className="flex space-x-4">
                             <a href="https://www.linkedin.com/in/omarelmalak" target="_blank" rel="noopener noreferrer">
                                 <FaLinkedin size={40} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
@@ -63,7 +63,6 @@ const Hero: React.FC = () => {
                                 <MdEmail size={45} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
                             </a>
                         </div>
-
                     </motion.div>
                 </motion.div>
 
@@ -230,8 +229,8 @@ const Hero: React.FC = () => {
                     </div>
                 </motion.div>
             </div>
-
         </div>
+
     );
 };
 

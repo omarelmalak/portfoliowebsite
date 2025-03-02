@@ -212,7 +212,7 @@ const Projects: React.FC = () => {
 
 
     return (
-        <div className="relative min-h-screen max-w-[100vw] overflow-x-hidden flex flex-col bg-black h-full">
+        <div className="relative min-h-[100vh] max-w-[100vw] overflow-x-hidden flex flex-col bg-black h-full">
             <div className="absolute left-[0vw] top-[30vh] w-[300px] h-[460px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
             <div className="absolute left-[60vw] top-[15vh] w-[460px] h-[370px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
             <div className="absolute left-[40vw] top-[55vh] w-[430px] h-[300px] bg-gradient-to-r from-[#F7D1A4] to-[#F4F1A1] rounded-full opacity-20 blur-3xl animate-right-hero" />
@@ -230,7 +230,7 @@ const Projects: React.FC = () => {
 
             <motion.div
                 ref={carouselRef}
-                className="flex gap-6 items-start cursor-grab active:cursor-grabbing mt-10"
+                className="flex gap-6 items-start cursor-grab active:cursor-grabbing mt-[6vh]"
                 drag="x"
                 dragControls={dragControls}
                 style={{ x }}
@@ -288,8 +288,11 @@ const Projects: React.FC = () => {
                             <FaGithub size={40} className="text-white" />
                         </a>
 
+                    </motion.div>
+                ))}
+            </motion.div>
 
-                        {/* <div className=" absolute top-[3vh] right-[1.3vw] flex gap-x-2">
+            {/* <div className=" absolute top-[3vh] right-[1.3vw] flex gap-x-2">
                             {project.technologies.map((technology, j) => (
 
                                 <img
@@ -301,15 +304,6 @@ const Projects: React.FC = () => {
 
                             ))}
                         </div> */}
-
-
-
-
-
-
-                    </motion.div>
-                ))}
-            </motion.div>
 
 
             {/* <button

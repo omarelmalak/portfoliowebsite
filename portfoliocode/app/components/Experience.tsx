@@ -198,8 +198,8 @@ const Experiences: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                <h1 className="text-6xl font-sfBold tracking-tigh text-white">Experience</h1>
-                <p className="text-4xl font-sfBold text-gray-400 mt-2">There is no substitute.</p>
+                <h1 className="text-6xl font-sfBold tracking-tigh text-white" style={{ fontSize: '7vmin' }}>Experience</h1>
+                <p className="text-4xl font-sfBold text-gray-400 mt-2" style={{ fontSize: '5vmin' }}>There is no substitute.</p>
 
                 {visibleIndex !== null && experienceList[visibleIndex] ? (
                     <>
@@ -219,7 +219,8 @@ const Experiences: React.FC = () => {
                                 animate={{ opacity: imageLoaded ? 1 : 0 }}
                                 transition={{ duration: 1, ease: "easeOut" }}
                             >
-                                <p className="text-3xl sm:text-3xl xs:text-xl font-sfBold text-white text-center max-w-[90%]">
+                                <p className="font-sfBold text-white text-center max-w-[90%]"
+                                    style={{ fontSize: '3vmin' }}>
                                     {experienceList[visibleIndex]?.companySummary}
                                 </p>
 
