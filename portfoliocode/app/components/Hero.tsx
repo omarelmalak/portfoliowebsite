@@ -30,8 +30,8 @@ const Hero: React.FC = () => {
             className="relative min-h-screen max-w-screen bg-black text-white overflow-x-hidden flex items-center justify-center px-6"
             onMouseMove={handleMouseMove}
         >
-            <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl animate-left-hero" />
-            <div className="absolute top-1 right-0 w-[500px] h-[500px] bg-gradient-to-r from-[#F7D1A4] from-[#F4F1A1] rounded-full opacity-35 blur-3xl animate-right-hero" />
+            <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl animate-left-hero pointer-events: none" />
+            <div className="absolute top-1 right-0 w-[500px] h-[500px] bg-gradient-to-r from-[#F7D1A4] from-[#F4F1A1] rounded-full opacity-35 blur-3xl animate-right-hero pointer-events: none" />
 
             <div className="flex flex-col sm:flex-row items-center justify-between max-w-5xl w-full gap-12 sm:gap-16">
                 <motion.div
@@ -44,12 +44,12 @@ const Hero: React.FC = () => {
                     <p className="text-3xl font-sfBold text-gray-400 mt-2">Software Developer & Designer</p>
 
                     <motion.div
-                        className="flex flex-col sm:flex-row max-w-5xl w-full gap-3 sm:gap-5 mt-4"
+                        className="flex flex-col sm:flex-row w-full gap-3 sm:gap-5 mt-4"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="flex space-x-4">
+                        <div className="flex space-x-4 relative z-20">
                             <a href="https://www.linkedin.com/in/omarelmalak" target="_blank" rel="noopener noreferrer">
                                 <FaLinkedin size={40} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
                             </a>
@@ -75,7 +75,6 @@ const Hero: React.FC = () => {
                         alignItems: "flex-end",
                         perspective: "1000px",
                         borderRadius: "15px",
-                        overflow: "visible",
                         height: "300px",
                         width: "500px",
                         position: "relative",

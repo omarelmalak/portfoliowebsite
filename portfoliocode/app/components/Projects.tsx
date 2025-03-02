@@ -80,8 +80,8 @@ const Projects: React.FC = () => {
         width: "15vw",
         height: "15vh",
         marginTop: "0vh",
-        scale: "0.9",
-        bottom: 10
+        scale: "0.8",
+        bottom: 0
     }
 
     const playfair: Project = {
@@ -145,7 +145,7 @@ const Projects: React.FC = () => {
         width: "15vw",
         height: "15vh",
         marginTop: "2vh",
-        scale: "1.6",
+        scale: "1.5",
         bottom: -115
     }
 
@@ -212,7 +212,7 @@ const Projects: React.FC = () => {
 
 
     return (
-        <div className="relative min-h-[100vh] max-w-[100vw] overflow-x-hidden flex flex-col bg-black h-full">
+        <div className="relative min-h-[100vh] max-w-[100vw] overflow-x-hidden overflow-y-hidden flex flex-col bg-black h-full">
             <div className="absolute left-[0vw] top-[30vh] w-[300px] h-[460px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
             <div className="absolute left-[60vw] top-[15vh] w-[460px] h-[370px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
             <div className="absolute left-[40vw] top-[55vh] w-[430px] h-[300px] bg-gradient-to-r from-[#F7D1A4] to-[#F4F1A1] rounded-full opacity-20 blur-3xl animate-right-hero" />
@@ -224,8 +224,8 @@ const Projects: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                <h1 className="text-6xl font-sfBold text-white tracking-tight">Projects</h1>
-                <p className="text-4xl font-sfBold text-gray-400 mt-2">Where the magic happens.</p>
+                <h1 className="text-6xl font-sfBold text-white tracking-tight" style={{ fontSize: '6.3vmin' }}>Projects</h1>
+                <p className="text-4xl font-sfBold text-gray-400 mt-2" style={{ fontSize: '3.7vmin' }}>Where the magic happens.</p>
             </motion.div>
 
             <motion.div
@@ -246,7 +246,7 @@ const Projects: React.FC = () => {
                         }}
                     >
                         <div className="ml-[1.3vw] mr-[1.3vw] mt-[3vh] group flex flex-row justify-between items-center">
-                            <h1 className=" text-xl text-[#2D2D2F] font-sfSemiBold">{project.title}</h1>
+                            <h1 className=" text-xl text-[#2D2D2F] font-sfSemiBold" style={{ fontSize: '2vmin' }}>{project.title}</h1>
                             <div className="flex gap-x-2">
                                 {project.technologies.map((technology, j) => (
 
@@ -260,7 +260,9 @@ const Projects: React.FC = () => {
                                 ))}
                             </div>
                         </div>
-                        <p className="mt-[1vh] ml-[1.3vw] text-2xl text-[#2D2D2F] font-sfBold w-full max-w-[17vw]">
+                        <p className="mt-[1vh] ml-[1.3vw] text-2xl text-[#2D2D2F] font-sfBold w-full max-w-[17vw]"
+                            style={{ fontSize: '2.5vmin', lineHeight: '1.3em' }}
+                        >
                             {project.summary}</p>
 
                         <motion.img
