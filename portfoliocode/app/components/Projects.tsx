@@ -225,12 +225,12 @@ const Projects: React.FC = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
             >
                 <h1 className="text-6xl font-sfBold text-white tracking-tight" style={{ fontSize: '6.3vmin' }}>Projects</h1>
-                <p className="text-4xl font-sfBold text-gray-400 mt-2" style={{ fontSize: '3.7vmin' }}>Where the magic happens.</p>
+                <p className="text-4xl font-sfBold text-gray-400 mt-[0.8vh]" style={{ fontSize: '3.7vmin' }}>Where the magic happens.</p>
             </motion.div>
 
             <motion.div
                 ref={carouselRef}
-                className="flex gap-6 items-start cursor-grab active:cursor-grabbing mt-[6vh]"
+                className="flex gap-[1.3vw] items-start cursor-grab active:cursor-grabbing mt-[6vh]"
                 drag="x"
                 dragControls={dragControls}
                 style={{ x }}

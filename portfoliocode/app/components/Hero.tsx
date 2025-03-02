@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
 
     return (
         <div
-            className="relative min-h-screen max-w-screen bg-black text-white overflow-x-hidden flex items-center justify-center px-6"
+            className="relative min-h-screen max-w-screen bg-black text-white overflow-x-hidden overflow-y-hidden flex items-center justify-center px-6"
             onMouseMove={handleMouseMove}
         >
             <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl animate-left-hero pointer-events: none" />
@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
                     <p className="text-3xl font-sfBold text-gray-400 mt-2">Software Developer & Designer</p>
 
                     <motion.div
-                        className="flex flex-col sm:flex-row w-full gap-3 sm:gap-5 mt-4"
+                        className="flex flex-col sm:flex-row w-full gap-3 sm:gap-5 mt-4 items-center"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -67,7 +67,7 @@ const Hero: React.FC = () => {
                 </motion.div>
 
                 <motion.div
-                    className="avatar-container"
+                    className="avatar-container md:mt-0 mt-10"
                     style={{
                         display: "flex",
                         backgroundColor: "white",
