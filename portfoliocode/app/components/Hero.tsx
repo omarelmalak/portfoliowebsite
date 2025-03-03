@@ -322,7 +322,7 @@ const Hero: React.FC = () => {
             >
                 <motion.div
                     className="flex justify-center items-center gap-x-[2vw] w-full h-full"
-                    style={{ opacity: 0 }}
+                    initial={{ opacity: 0 }}
                     whileHover={{
                         opacity: 1,
                         transition: { duration: 0.3, delay: 0.5 },
@@ -368,6 +368,7 @@ const Hero: React.FC = () => {
                     </motion.button>
                 </motion.div>
             </motion.div>
+
 
 
         </div >
