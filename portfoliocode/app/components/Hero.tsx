@@ -27,6 +27,20 @@ const Hero: React.FC = () => {
         }
     };
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth >= 768);
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+
     const scrollToSection = (id: string) => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
@@ -245,7 +259,7 @@ const Hero: React.FC = () => {
                     width: "10vw",
                     height: "5vh",
                     fontSize: "3vmin",
-                    display: window.innerWidth >= 768 ? "flex" : "none",
+                    display: isMobile ? "flex" : "none",
                     alignItems: "center",
                     justifyContent: "center",
                 }}
