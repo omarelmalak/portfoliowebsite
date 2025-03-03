@@ -15,7 +15,7 @@ const ComingSoon: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <h1 className="text-5xl font-sfBold text-gray-400 tracking-tight">Coming soon...</h1>
+                <h1 className="text-5xl font-sfBold text-gray-400 tracking-tight">More to come soon...</h1>
             </motion.div>
         </div>
     );

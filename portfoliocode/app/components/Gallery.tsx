@@ -41,7 +41,17 @@ const Gallery: React.FC = () => {
     ];
 
     return (
-        <div>
+        <div className="overflow-x-hidden">
+            <div className="absolute right-[20vw] top-[0vh] w-[400px] h-[460px] bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] rounded-full opacity-30 blur-3xl animate-left-hero" />
+            <div className="absolute right-[0vw] top-[60vh] w-[300px] h-[460px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-right-hero" />
+            <div className="absolute left-[0vw] top-[30vh] w-[300px] h-[460px] bg-gradient-to-b from-[#B99CE7] to-[#7C3AED] rounded-full opacity-30 blur-3xl animate-left-hero" />
+            <div className="absolute left-[30vw] top-[80vh] w-[400px] h-[460px] bg-gradient-to-b from-[#77A7D5] to-[#A1D6B3] rounded-full opacity-30 blur-3xl animate-left-hero" />
+            <div className="absolute left-[0vw] top-[170vh] w-[300px] h-[460px] bg-gradient-to-b from-[#F7D1A4] to-[#F4F1A1] rounded-full opacity-30 blur-3xl animate-left-hero" />
+            <div className="absolute right-[25vw] top-[160vh] w-[400px] h-[460px] bg-gradient-to-b from-[#77A7D5] to-[#F2A9C6] rounded-full opacity-30 blur-3xl animate-left-hero" />
+            <div className="absolute right-[5vw] top-[230vh] w-[400px] h-[460px] bg-gradient-to-b from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-30 blur-3xl animate-right-hero" />
+            <div className="absolute left-[30vw] top-[240vh] w-[400px] h-[460px] bg-gradient-to-b from-[#F7D1A4] to-[#F2A9C6] rounded-full opacity-30 blur-3xl animate-right-hero" />
+
+
             <motion.div
                 className="top-[80px] pl-[10vw] text-left mt-[10vh]"
                 initial={{ opacity: 0, y: 50 }}
@@ -49,9 +59,9 @@ const Gallery: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                <h1 className="text-6xl font-sfBold text-white tracking-tight">Gallery</h1>
-                <p className="text-4xl font-sfBold text-gray-400 mt-2">Welcome to my world.</p>
-                <div className="relative min-h-[100vh] max-w-[100vw] mt-[6vh] pr-[10vw] overflow-x-hidden flex flex-row gap-10 bg-black h-full">
+                <h1 className="text-6xl font-sfBold text-white tracking-tight" style={{ fontSize: '6.3vmin' }}>Gallery</h1>
+                <p className="text-4xl font-sfBold text-gray-400 mt-2" style={{ fontSize: '3.7vmin' }}>Welcome to my world.</p>
+                <div className="relative min-h-[100vh] max-w-[100vw] mt-[6vh] pr-[10vw] overflow-x-hidden flex flex-row gap-10 h-full">
                     <Column images={[photoPaths[0], photoPaths[11], photoPaths[2], photoPaths[10], photoPaths[6]]} />
                     <Column images={[photoPaths[14], photoPaths[3], photoPaths[13], photoPaths[4], photoPaths[8], photoPaths[12]]} />
                     <Column images={[photoPaths[1], photoPaths[9], photoPaths[7], photoPaths[15], photoPaths[5]]} />
