@@ -6,6 +6,7 @@ import Gallery from "./components/Gallery";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import ComingSoon from "./components/ComingSoon";
+import Lenis from "lenis";
 
 
 const Website: React.FC = () => {
@@ -20,6 +21,24 @@ const Website: React.FC = () => {
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
+
+  // const [scrollY, setScrollY] = useState(0);
+
+  // useEffect(() => {
+  //   const lenis = new Lenis();
+
+  //   function raf(time: any) {
+  //     lenis.raf(time);
+  //     setScrollY(lenis.scroll);
+  //     requestAnimationFrame(raf);
+  //   }
+  //   requestAnimationFrame(raf);
+  //   return () => {
+  //     lenis.destroy();
+  //   };
+  // }, []);
+
+
 
   return (
     <div className="bg-black">
@@ -37,6 +56,7 @@ const Website: React.FC = () => {
       {!isMobile && (
         <>
           <motion.div
+            id="experiences"
             className="relative min-h-screen max-w-screen flex flex-col bg-black h-full"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -48,6 +68,7 @@ const Website: React.FC = () => {
           </motion.div>
 
           <motion.div
+            id="projects"
             className="relative min-h-screen max-w-screen flex flex-col bg-black h-full"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -59,6 +80,7 @@ const Website: React.FC = () => {
           </motion.div>
 
           <motion.div
+            id="gallery"
             className="relative min-h-screen max-w-screen flex flex-col bg-black h-full"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

@@ -1,9 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaLinkedin, FaGithub, FaFileAlt, FaFilePdf } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
+import { Link } from "react-scroll";
+import gsap from "gsap"
 
 
 const Hero: React.FC = () => {
@@ -24,6 +26,15 @@ const Hero: React.FC = () => {
             });
         }
     };
+
+    const scrollToSection = (id: string) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    };
+
+
+
+
+
 
     return (
         <div
@@ -227,8 +238,78 @@ const Hero: React.FC = () => {
                         </motion.div>
                     </div>
                 </motion.div>
+                <p className="text-3xl md:hidden font-sfBold text-center text-gray-400 mt-2">To enjoy the full experience, please view on desktop.</p>
+
+
+
             </div>
-        </div>
+            <motion.div
+                className="dynamic-island absolute font-sfBold md:block hidden top-[4vh] flex items-center justify-center rounded-full py-2 bg-transparent border-2 border-white transition-all duration-300"
+                style={{
+                    width: "10vw",
+                    height: "5vh",
+                    fontSize: "3vmin",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                }}
+                whileHover={{
+                    width: "30vw",
+                    height: "7vh",
+                    transition: { duration: 0.3, ease: "easeInOut" },
+                }}
+            >
+                <motion.div
+                    className="flex justify-center items-center gap-x-[2vw] w-full h-full"
+                    style={{ opacity: 0 }}
+                    whileHover={{
+                        opacity: 1,
+                        transition: { duration: 0.3, delay: 0.5 },
+                    }}
+                >
+                    <motion.button
+                        className="pr-[2vw] relative"
+                        onClick={() => scrollToSection("experiences")}
+                        whileHover={{
+                            textShadow: "0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)",
+                            scale: 1.1,
+                            transition: { duration: 0.8, ease: "easeInOut" }
+                        }}
+                    >
+                        Experience
+                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100 origin-left"></span>
+                    </motion.button>
+
+                    <motion.button
+                        className="pr-[2vw] relative"
+                        onClick={() => scrollToSection("projects")}
+                        whileHover={{
+                            textShadow: "0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)",
+                            scale: 1.1,
+                            transition: { duration: 0.8, ease: "easeInOut" }
+                        }}
+                    >
+                        Projects
+                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100 origin-left"></span>
+                    </motion.button>
+
+                    <motion.button
+                        className="relative"
+                        onClick={() => scrollToSection("gallery")}
+                        whileHover={{
+                            textShadow: "0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)",
+                            scale: 1.1,
+                            transition: { duration: 0.8, ease: "easeInOut" }
+                        }}
+                    >
+                        Gallery
+                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white scale-x-0 transition-transform duration-300 group-hover:scale-x-100 origin-left"></span>
+                    </motion.button>
+                </motion.div>
+            </motion.div>
+
+
+        </div >
 
     );
 };
