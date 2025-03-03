@@ -32,10 +32,6 @@ const Hero: React.FC = () => {
     };
 
 
-
-
-
-
     return (
         <div
             className="relative min-h-screen max-w-screen bg-black text-white overflow-x-hidden overflow-y-hidden flex items-center justify-center px-6"
@@ -244,12 +240,12 @@ const Hero: React.FC = () => {
 
             </div>
             <motion.div
-                className="dynamic-island absolute font-sfBold md:block hidden top-[4vh] flex items-center justify-center rounded-full py-2 bg-transparent border-2 border-white transition-all duration-300"
+                className="dynamic-island absolute font-sfBold top-[4vh] flex items-center justify-center rounded-full py-2 bg-transparent border-2 border-white transition-all duration-300"
                 style={{
                     width: "10vw",
                     height: "5vh",
                     fontSize: "3vmin",
-                    display: "flex",
+                    display: window.innerWidth >= 768 ? "flex" : "none",
                     alignItems: "center",
                     justifyContent: "center",
                 }}
