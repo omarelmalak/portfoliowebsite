@@ -91,6 +91,16 @@ body {
 }
 
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+
+
 
 @keyframes rotate {
   to {

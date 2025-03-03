@@ -41,7 +41,7 @@ const Gallery: React.FC = () => {
     ];
 
     return (
-        <div className="overflow-x-hidden">
+        <div className="overflow-x-hidden bg-black">
             <div className="absolute right-[20vw] top-[0vh] w-[400px] h-[460px] bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] rounded-full opacity-30 blur-3xl animate-left-hero" />
             <div className="absolute right-[0vw] top-[60vh] w-[300px] h-[460px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-right-hero" />
             <div className="absolute left-[0vw] top-[30vh] w-[300px] h-[460px] bg-gradient-to-b from-[#B99CE7] to-[#7C3AED] rounded-full opacity-30 blur-3xl animate-left-hero" />

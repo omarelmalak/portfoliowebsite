@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { AnimationControls, motion, useAnimate, useAnimation, useAnimationControls } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { FaLinkedin, FaGithub, FaFileAlt, FaFilePdf } from 'react-icons/fa';
@@ -45,6 +45,25 @@ const Hero: React.FC = () => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
 
+    const toronto = " Toronto, ON".split("");;
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const controls = useAnimationControls();
+
+
+    const rubberBand = (controls: AnimationControls) => {
+        controls.start({
+            transform: [
+                "scale3d(1, 1, 1)",
+                "scale3d(1.4, 0.55, 1)",
+                "scale3d(0.75, 1.25, 1)",
+                "scale3d(1.25, 0.85, 1)",
+                "scale3d(0.9, 1.05, 1)",
+                "scale3d(1, 1, 1)"
+            ]
+        });
+        // setIsPlaying(true);
+    };
 
     return (
         <div
@@ -54,15 +73,47 @@ const Hero: React.FC = () => {
             <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl animate-left-hero pointer-events: none" />
             <div className="absolute top-1 right-0 w-[500px] h-[500px] bg-gradient-to-r from-[#F7D1A4] from-[#F4F1A1] rounded-full opacity-35 blur-3xl animate-right-hero pointer-events: none" />
 
+
+
             <div className="flex flex-col sm:flex-row items-center justify-between max-w-5xl w-full gap-12 sm:gap-16">
+
                 <motion.div
-                    className="text-center sm:text-left"
+                    className="text-center sm:text-left z-20"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
+                    <span className="text-2xl font-sfBold tracking-tight">
+                        📍
+                    </span>
+                    {toronto.map((letter, index) => {
+                        const controls = useAnimation();
+                        return (
+                            <motion.span
+                                key={index}
+                                className={`text-2xl font-sfBold tracking-tight inline-block`}
+                                animate={controls}
+                                onMouseOver={(e) => {
+                                    rubberBand(controls);
+                                    const target = e.target as HTMLElement;
+                                    target.style.color = index % 2 === 1 ? "#FF0000" : "white";
+                                }}
+                            >
+                                {letter === " " ? "\u00A0" : letter}
+                            </motion.span>
+                        );
+                    })}
+
+
+
+
+
+
+
                     <h1 className="text-5xl font-sfBold tracking-tight">Omar El Malak</h1>
+
                     <p className="text-3xl font-sfBold text-gray-400 mt-2">Software Developer & Designer</p>
+
 
                     <motion.div
                         className="flex flex-col sm:flex-row w-full gap-3 sm:gap-5 mt-4 items-center"

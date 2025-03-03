@@ -81,7 +81,7 @@ const Website: React.FC = () => {
 
           <motion.div
             id="gallery"
-            className="relative min-h-screen max-w-screen flex flex-col bg-black h-full"
+            className="relative min-h-screen overflow-hidden max-w-screen flex flex-col bg-black h-full"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -206,13 +206,39 @@ const Projects: React.FC = () => {
     const carouselRef = useRef<HTMLDivElement>(null);
     const x = useMotionValue(0);
 
+    const [isAtStart, setIsAtStart] = useState(true);
+    const [isAtEnd, setIsAtEnd] = useState(false);
+
+    const checkScrollPosition = () => {
+        if (carouselRef.current) {
+            const isAtStart = carouselRef.current.scrollLeft === 0;
+            const isAtEnd = carouselRef.current.scrollLeft + carouselRef.current.clientWidth >= carouselRef.current.scrollWidth;
+
+            setIsAtStart(isAtStart);
+            setIsAtEnd(isAtEnd);
+        }
+    };
+
+    const leftButton = () => {
+        if (carouselRef.current) {
+            carouselRef.current.scrollBy({ left: -800, behavior: 'smooth' });
+            checkScrollPosition()
+        }
+    };
+
+    const rightButton = () => {
+        if (carouselRef.current) {
+            carouselRef.current.scrollBy({ left: 800, behavior: 'smooth' });
+            checkScrollPosition()
+        }
+    };
 
 
     const colors = ["#FFF3F7", "#E3F0FE", "#CEA594", "#BCE491"];
 
 
     return (
-        <div className="relative min-h-[100vh] max-w-[100vw] overflow-x-hidden overflow-y-visible flex flex-col bg-black h-full">
+        <div className="relative min-h-[100vh] max-w-[100vw] overflow-x-hidden overflow-y-hidden flex flex-col bg-black h-full">
             <div className="absolute left-[0vw] top-[30vh] w-[300px] h-[460px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
             <div className="absolute left-[60vw] top-[15vh] w-[460px] h-[370px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
             <div className="absolute left-[40vw] top-[55vh] w-[430px] h-[300px] bg-gradient-to-r from-[#F7D1A4] to-[#F4F1A1] rounded-full opacity-20 blur-3xl animate-right-hero" />
@@ -230,11 +256,12 @@ const Projects: React.FC = () => {
 
             <motion.div
                 ref={carouselRef}
-                className="flex gap-[1.3vw] items-start cursor-grab active:cursor-grabbing mt-[6vh]"
-                drag="x"
-                dragControls={dragControls}
-                style={{ x }}
-                dragConstraints={{ left: dragLeft, right: dragRight }}
+                className="flex gap-[1.3vw] pr-[2vw] items-start mt-[3vh] overflow-x-auto items-center scroll-smooth scrollbar-hide"
+                style={{
+                    height: '66vh',
+                    overflowY: 'hidden',
+
+                }}
             >
                 {projects.map((project, i) => (
                     <motion.div
@@ -307,13 +334,30 @@ const Projects: React.FC = () => {
                             ))}
                         </div> */}
 
+            <div className="flex justify-end mr-[6vw] mt-[1vh] flex-row gap-x-[1vw]">
+                <button
+                    onClick={leftButton}
+                >
+                    <FaChevronCircleLeft size={40} color={"#DEDEE2"} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-gray-500"
+                    // style={{
+                    //     opacity: isAtStart ? 0.6 : 1
+                    // }} 
+                    />
 
-            {/* <button
-                onClick={next}
-                className="absolute right-[5vw] bottom-[3vh] bg-white px-4 py-2 rounded-full shadow-md"
-            >
-                Next
-            </button> */}
+                </button>
+
+                <button
+                    onClick={rightButton}
+                >
+                    <FaChevronCircleRight size={40} color={"#DEDEE2"} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-gray-500"
+                    // style={{
+                    //     opacity: isAtEnd ? "60" : "100"
+                    // }} 
+                    />
+
+                </button>
+            </div>
+
 
 
 

@@ -49,7 +49,7 @@ export default {
       },
       animation: {
         'left-hero': 'leftHero 10s ease-in-out infinite',
-        'right-hero': 'rightHero 20s ease-in-out infinite'
+        'right-hero': 'rightHero 20s ease-in-out infinite',
       },
     },
   },
