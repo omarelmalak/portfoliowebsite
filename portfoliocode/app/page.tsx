@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import ComingSoon from "./components/ComingSoon";
 import Lenis from "lenis";
+import { Meteors } from "./components/meteors";
+import { Particles } from "./components/particles";
 
 const Website: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -58,6 +60,7 @@ const Website: React.FC = () => {
               transition={{ duration: 0.6, ease: "easeInOut" }}
               className="bg-black h-screen absolute inset-0 flex items-center justify-center text-gray-400 text-5xl font-SfSemibold z-50"
             >
+
               <motion.span
                 key={index}
                 initial={{ opacity: 0, y: 0 }}
@@ -81,6 +84,7 @@ const Website: React.FC = () => {
           transition={{ duration: 0.2, ease: "easeOut" }}
           style={{ visibility: isLoading ? 'hidden' : 'visible' }}
         >
+
           <Hero toggleMode={toggleMode} isLight={isLight} />
         </motion.div>
       </div>
@@ -121,7 +125,7 @@ const Website: React.FC = () => {
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <Gallery isLight={isLight} />
           </motion.div>

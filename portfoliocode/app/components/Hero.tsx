@@ -1,6 +1,7 @@
 "use client";
 import { AnimationControls, motion, useAnimate, useAnimation, useAnimationControls } from "framer-motion";
 import Image from "next/image";
+import { Particles } from "./particles";
 import { useState, useEffect } from "react";
 import { FaLinkedin, FaGithub, FaFileAlt, FaFilePdf } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
@@ -76,10 +77,15 @@ const Hero: React.FC<HeroProps> = ({ toggleMode, isLight }) => {
             className={`relative min-h-screen max-w-screen ${isLight ? "bg-white text-black" : "bg-black text-white"} overflow-x-hidden overflow-y-hidden flex items-center justify-center px-6`}
             onMouseMove={handleMouseMove}
         >
+            <Particles
+                className="absolute inset-0 z-0"
+                quantity={100}
+                ease={80}
+                color={isLight ? "#000000" : "#FFFFFF"}
+                refresh
+            />
             <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl animate-left-hero pointer-events: none" />
             <div className="absolute top-1 right-0 w-[500px] h-[500px] bg-gradient-to-r from-[#F7D1A4] from-[#F4F1A1] rounded-full opacity-35 blur-3xl animate-right-hero pointer-events: none" />
-
-
 
             <div className="flex flex-col sm:flex-row items-center mt-[3vh] md:mt-0 justify-between max-w-5xl w-full gap-12 sm:gap-16">
 
