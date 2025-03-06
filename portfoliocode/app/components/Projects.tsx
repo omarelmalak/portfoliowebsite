@@ -30,8 +30,12 @@ interface Project {
     bottom: number,
 }
 
+interface ProjectsProps {
+    isLight: boolean
+}
 
-const Projects: React.FC = () => {
+
+const Projects: React.FC<ProjectsProps> = ({ isLight }) => {
     const sokoban: Project = {
         title: "Sokoban",
         summary: "An implementation of the popular Sokoban video game.",
@@ -238,10 +242,10 @@ const Projects: React.FC = () => {
 
 
     return (
-        <div className="relative min-h-[100vh] max-w-[100vw] overflow-x-hidden overflow-y-hidden flex flex-col bg-black h-full">
+        <div className={`relative ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-[100vh] max-w-[100vw] overflow-x-hidden overflow-y-hidden flex flex-col h-full`}>
             <div className="absolute left-[0vw] top-[30vh] w-[300px] h-[460px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
-            <div className="absolute left-[60vw] top-[15vh] w-[460px] h-[370px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
-            <div className="absolute left-[40vw] top-[55vh] w-[430px] h-[300px] bg-gradient-to-r from-[#F7D1A4] to-[#F4F1A1] rounded-full opacity-20 blur-3xl animate-right-hero" />
+            <div className="absolute left-[60vw] top-[15vh] w-[460px] h-[370px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-30 blur-3xl animate-right-hero" />
+            <div className="absolute left-[40vw] top-[50vh] w-[430px] h-[300px] bg-gradient-to-r from-[#F7D1A4] to-[#F4F1A1] rounded-full opacity-30 blur-3xl animate-right-hero" />
 
             <motion.div
                 className="top-[80px] pl-[10vw] text-left mt-[10vh]"
@@ -250,7 +254,7 @@ const Projects: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                <h1 className="text-6xl font-sfBold text-white tracking-tight" style={{ fontSize: '6.3vmin' }}>Projects</h1>
+                <h1 className="text-6xl font-sfBold tracking-tight" style={{ fontSize: '6.3vmin' }}>Projects</h1>
                 <p className="text-4xl font-sfBold text-gray-400 mt-[0.8vh]" style={{ fontSize: '3.7vmin' }}>Where the magic happens.</p>
             </motion.div>
 
@@ -266,24 +270,22 @@ const Projects: React.FC = () => {
                 {projects.map((project, i) => (
                     <motion.div
                         key={i}
-                        className="group flex-col h-[60vh] min-w-[20vw] max-w-[20vw] overflow-hidden rounded-2xl text-white flex hover:scale-110 hover:shadow-xl hover:cursor-pointer shadow-lg transition-all duration-500 ease-out transform"
+                        className="group flex-col h-[60vh] min-w-[20vw] max-w-[20vw] overflow-hidden rounded-2xl flex hover:scale-110 hover:cursor-pointer transition-all duration-500 ease-out transform"
                         style={{
                             marginLeft: i === 0 ? "10vw" : "0",
                             background: `linear-gradient(to bottom, ${colors[i % colors.length]} 0%, #FFFFFF 100%)`,
                         }}
                     >
                         <div className="ml-[1.3vw] mr-[1.3vw] mt-[3vh] group flex flex-row justify-between items-center">
-                            <h1 className=" text-xl text-[#2D2D2F] font-sfSemiBold" style={{ fontSize: '2vmin' }}>{project.title}</h1>
+                            <h1 className="text-xl text-[#2D2D2F] font-sfSemiBold" style={{ fontSize: '2vmin' }}>{project.title}</h1>
                             <div className="flex gap-x-2">
                                 {project.technologies.map((technology, j) => (
-
                                     <img
                                         key={j}
                                         className="w-[1.3vw] max-h-[3vh] opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
                                         style={{ transitionDelay: `${j * 100}ms` }}
                                         src={technology}
                                     />
-
                                 ))}
                             </div>
                         </div>
@@ -300,7 +302,6 @@ const Projects: React.FC = () => {
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.3 }}
                             draggable="false"
-
                             style={{
                                 transform: `scale(${project.scale})`,
                                 position: 'absolute',
@@ -309,59 +310,28 @@ const Projects: React.FC = () => {
                         />
 
                         <a
-                            className="absolute bottom-[1vh] right-[0.5vw] flex justify-center items-center w-[50px] h-[50px] bg-[#2D2D2F] rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#2D2D2F]"
+                            className={`absolute bottom-[1vh] right-[0.5vw] flex justify-center items-center w-[50px] h-[50px] ${isLight ? "bg-white text-[#2D2D2F]" : "bg-[#2D2D2F] text-white"} rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#2D2D2F]`}
                             href={project.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <FaGithub size={40} className="text-white" />
+                            <FaGithub size={40} />
                         </a>
-
                     </motion.div>
                 ))}
             </motion.div>
 
-            {/* <div className=" absolute top-[3vh] right-[1.3vw] flex gap-x-2">
-                            {project.technologies.map((technology, j) => (
-
-                                <img
-                                    key={j}
-                                    className="w-[1.3vw] max-h-[3vh] opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
-                                    style={{ transitionDelay: `${j * 100}ms` }}
-                                    src={technology}
-                                />
-
-                            ))}
-                        </div> */}
-
             <div className="flex justify-end mr-[6vw] mt-[1vh] flex-row gap-x-[1vw]">
-                <button
-                    onClick={leftButton}
-                >
-                    <FaChevronCircleLeft size={40} color={"#DEDEE2"} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-gray-500"
-                    // style={{
-                    //     opacity: isAtStart ? 0.6 : 1
-                    // }} 
-                    />
-
+                <button onClick={leftButton}>
+                    <FaChevronCircleLeft size={40} color={isLight ? "#2D2D2F" : "#DEDEE2"} className="duration-300 hover:scale-105" />
                 </button>
 
-                <button
-                    onClick={rightButton}
-                >
-                    <FaChevronCircleRight size={40} color={"#DEDEE2"} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-gray-500"
-                    // style={{
-                    //     opacity: isAtEnd ? "60" : "100"
-                    // }} 
-                    />
-
+                <button onClick={rightButton}>
+                    <FaChevronCircleRight size={40} color={isLight ? "#2D2D2F" : "#DEDEE2"} className="duration-300 hover:scale-105" />
                 </button>
             </div>
-
-
-
-
         </div>
+
 
     );
 }

@@ -4,13 +4,13 @@ import Experiences from "./components/Experience";
 import Projects from "./components/Projects";
 import Gallery from "./components/Gallery";
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll } from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 import ComingSoon from "./components/ComingSoon";
 import Lenis from "lenis";
 
-
 const Website: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -22,84 +22,119 @@ const Website: React.FC = () => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // const [scrollY, setScrollY] = useState(0);
-
-  // useEffect(() => {
-  //   const lenis = new Lenis();
-
-  //   function raf(time: any) {
-  //     lenis.raf(time);
-  //     setScrollY(lenis.scroll);
-  //     requestAnimationFrame(raf);
-  //   }
-  //   requestAnimationFrame(raf);
-  //   return () => {
-  //     lenis.destroy();
-  //   };
-  // }, []);
+  const toggleMode = () => {
+    setIsLight(!isLight);
+  };
 
 
+  const texts = ["Hello", "Bonjour", "مرحبا"];
+
+  const [isLoading, setIsLoading] = useState(1);
+  const [index, setIndex] = useState(0);
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % texts.length);
+    }, 1000);
+
+    setTimeout(() => {
+      setIsLoading(0);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="bg-black">
-      <motion.div
-        className="relative min-h-screen max-w-screen flex flex-col h-full"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        viewport={{ once: false, amount: 0.15 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-      >
-        <Hero />
-      </motion.div>
+    <div className={`transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"}`}>
+      <div className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"}`}>
+        <AnimatePresence>
+          {isLoading && (
+            <motion.div
+              key="loading"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 1, y: "-100vh" }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="bg-black h-screen absolute inset-0 flex items-center justify-center text-gray-400 text-5xl font-SfSemibold z-50"
+            >
+              <motion.span
+                key={index}
+                initial={{ opacity: 0, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.4,
+                  ease: "easeInOut",
+                }}
+              >
+                {texts[index]}
+              </motion.span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      {!isMobile && (
+
+        <motion.div
+          className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full z-0`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          style={{ visibility: isLoading ? 'hidden' : 'visible' }}
+        >
+          <Hero toggleMode={toggleMode} isLight={isLight} />
+        </motion.div>
+      </div>
+
+
+
+
+      {!isMobile && !isLoading && (
         <>
           <motion.div
             id="experiences"
-            className="relative min-h-screen max-w-screen flex flex-col bg-black h-full"
+            className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <Experiences />
+            <Experiences isLight={isLight} />
           </motion.div>
 
           <motion.div
             id="projects"
-            className="relative min-h-screen max-w-screen flex flex-col bg-black h-full"
+            className={`relative  z-[0] transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            viewport={{ once: false, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <Projects />
+            <Projects isLight={isLight} />
           </motion.div>
 
           <motion.div
             id="gallery"
-            className="relative min-h-screen overflow-hidden max-w-screen flex flex-col bg-black h-full"
+            className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <Gallery />
+            <Gallery isLight={isLight} />
           </motion.div>
 
           <motion.div
-            className="relative min-h-screen max-w-screen flex flex-col bg-black h-full"
+            className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <ComingSoon />
+            <ComingSoon isLight={isLight} />
           </motion.div>
         </>
       )}
@@ -108,3 +143,4 @@ const Website: React.FC = () => {
 };
 
 export default Website;
+

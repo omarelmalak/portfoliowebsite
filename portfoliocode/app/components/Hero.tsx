@@ -5,10 +5,16 @@ import { useState, useEffect } from "react";
 import { FaLinkedin, FaGithub, FaFileAlt, FaFilePdf } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { Link } from "react-scroll";
-import gsap from "gsap"
+import gsap from "gsap";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 
-const Hero: React.FC = () => {
+interface HeroProps {
+    toggleMode: () => void;
+    isLight: boolean;
+}
+
+const Hero: React.FC<HeroProps> = ({ toggleMode, isLight }) => {
     const [rotation, setRotation] = useState({ x: -5, y: 3 });
 
     const handleMouseMove = (event: React.MouseEvent) => {
@@ -67,7 +73,7 @@ const Hero: React.FC = () => {
 
     return (
         <div
-            className="relative min-h-screen max-w-screen bg-black text-white overflow-x-hidden overflow-y-hidden flex items-center justify-center px-6"
+            className={`relative min-h-screen max-w-screen ${isLight ? "bg-white text-black" : "bg-black text-white"} overflow-x-hidden overflow-y-hidden flex items-center justify-center px-6`}
             onMouseMove={handleMouseMove}
         >
             <div className="absolute top-1 left-3 w-[500px] h-[400px] bg-gradient-to-r from-blue-500 to-purple-600 rounded-full opacity-30 blur-3xl animate-left-hero pointer-events: none" />
@@ -75,13 +81,13 @@ const Hero: React.FC = () => {
 
 
 
-            <div className="flex flex-col sm:flex-row items-center justify-between max-w-5xl w-full gap-12 sm:gap-16">
+            <div className="flex flex-col sm:flex-row items-center mt-[3vh] md:mt-0 justify-between max-w-5xl w-full gap-12 sm:gap-16">
 
                 <motion.div
                     className="text-center sm:text-left z-20"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.8, delay: 3 }}
                 >
                     <span className="text-2xl font-sfBold tracking-tight">
                         📍
@@ -96,7 +102,7 @@ const Hero: React.FC = () => {
                                 onMouseOver={(e) => {
                                     rubberBand(controls);
                                     const target = e.target as HTMLElement;
-                                    target.style.color = index % 2 === 1 ? "#FF0000" : "white";
+                                    target.style.color = index % 2 === 1 ? "#FF0000" : "inherit";
                                 }}
                             >
                                 {letter === " " ? "\u00A0" : letter}
@@ -109,10 +115,16 @@ const Hero: React.FC = () => {
 
 
 
+                    {isLight ? (
+                        <h1 className="text-5xl font-sfBold tracking-tight text-black mr-5">Omar El Malak</h1>
+                    ) :
+                        <h1 className="text-5xl font-sfBold tracking-tight text-white mr-5">Omar El Malak</h1>
+                    }
 
-                    <h1 className="text-5xl font-sfBold tracking-tight">Omar El Malak</h1>
 
-                    <p className="text-3xl font-sfBold text-gray-400 mt-2">Software Developer & Designer</p>
+
+
+                    <p className="text-3xl font-sfBold text-gray-400 mt-2">Full-Stack Software Developer</p>
 
 
                     <motion.div
@@ -121,28 +133,70 @@ const Hero: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="flex space-x-4 relative z-20">
-                            <a href="https://www.linkedin.com/in/omarelmalak" target="_blank" rel="noopener noreferrer">
-                                <FaLinkedin size={40} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
-                            </a>
-                            <a href="https://github.com/omarelmalak" target="_blank" rel="noopener noreferrer">
-                                <FaGithub size={40} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
-                            </a>
-                            <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
-                                <FaFileAlt size={40} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
-                            </a>
-                            <a href="mailto:omarelmalak28@gmail.com" target="_blank" rel="noopener noreferrer">
-                                <MdEmail size={45} className="duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50" />
-                            </a>
-                        </div>
+                        {isLight ? (
+                            <div className="flex space-x-4 relative z-20 text-black">
+                                <a href="https://www.linkedin.com/in/omarelmalak" target="_blank" rel="noopener noreferrer">
+                                    <FaLinkedin size={40} className="duration-300 hover:scale-105 hover:shadow-2xl" />
+                                </a>
+                                <a href="https://github.com/omarelmalak" target="_blank" rel="noopener noreferrer">
+                                    <FaGithub size={40} className="duration-300 hover:scale-105" />
+                                </a>
+                                <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+                                    <FaFileAlt size={40} className="duration-300 hover:scale-105" />
+                                </a>
+                                <a href="mailto:omarelmalak28@gmail.com" target="_blank" rel="noopener noreferrer">
+                                    <MdEmail size={45} className="duration-300 hover:scale-105" />
+                                </a>
+                            </div>
+                        ) : (
+                            <div className="flex space-x-4 relative z-20 text-white">
+                                <a href="https://www.linkedin.com/in/omarelmalak" target="_blank" rel="noopener noreferrer">
+                                    <FaLinkedin size={40} className="duration-300 hover:scale-105 hover:shadow-2xl" />
+                                </a>
+                                <a href="https://github.com/omarelmalak" target="_blank" rel="noopener noreferrer">
+                                    <FaGithub size={40} className="duration-300 hover:scale-105 hover:shadow-2xl" />
+                                </a>
+                                <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+                                    <FaFileAlt size={40} className="duration-300 hover:scale-105 hover:shadow-2xl" />
+                                </a>
+                                <a href="mailto:omarelmalak28@gmail.com" target="_blank" rel="noopener noreferrer">
+                                    <MdEmail size={45} className="duration-300 hover:scale-105 hover:shadow-2xl" />
+                                </a>
+                            </div>)}
+
+                        {isLight ? (
+                            <motion.div
+                                className="relative p-2 rounded-full border-2 border-black md:ml-auto hover:cursor-pointer hover:scale-110 transform duration-300 ease-out"
+                                whileHover={{ scale: 1.1 }}
+                                onClick={() => toggleMode()}
+                            >
+                                <FaMoon size={30} className="text-black" />
+                            </motion.div>
+                        ) : (
+                            <motion.div
+                                className="relative p-2 rounded-full border-2 border-white md:ml-auto hover:cursor-pointer hover:scale-110 transform duration-300 ease-out"
+                                whileHover={{ scale: 1.1 }}
+                                onClick={() => toggleMode()}
+
+                            >
+                                <FaSun size={30} className="text-white" />
+                            </motion.div>
+                        )}
+
+
+
                     </motion.div>
                 </motion.div>
 
+
                 <motion.div
                     className="avatar-container md:mt-0 mt-10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 4 }}
                     style={{
                         display: "flex",
-                        backgroundColor: "white",
+                        backgroundColor: isLight ? "black" : "white",
                         justifyContent: "center",
                         alignItems: "flex-end",
                         perspective: "1000px",
@@ -152,6 +206,17 @@ const Hero: React.FC = () => {
                         position: "relative",
                     }}
                 >
+                    <div
+                        style={{
+                            backgroundColor: "white",
+                            width: "30%",
+                            height: "30%",
+                            top: 50,
+                            position: "absolute",
+                            borderRadius: "10px",
+                            // opacity: isLight ? 100 : 0,
+                        }}
+                    />
                     <div
                         style={{
                             position: "relative",
@@ -305,7 +370,7 @@ const Hero: React.FC = () => {
 
             </div>
             <motion.div
-                className="dynamic-island absolute font-sfBold top-[4vh] flex items-center justify-center rounded-full py-2 bg-transparent border-2 border-white transition-all duration-300"
+                className={`dynamic-island ${isLight ? "light" : ""} absolute font-sfBold top-[4vh] flex items-center justify-center rounded-full py-2 bg-transparent border-2 border-white transition-all duration-300`}
                 style={{
                     width: "10vw",
                     height: "5vh",
@@ -332,7 +397,9 @@ const Hero: React.FC = () => {
                         className="pr-[2vw] relative"
                         onClick={() => scrollToSection("experiences")}
                         whileHover={{
-                            textShadow: "0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)",
+                            textShadow: isLight
+                                ? "0 0 20px rgba(169, 169, 169, 0.8), 0 0 30px rgba(169, 169, 169, 0.6)"
+                                : "0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)",
                             scale: 1.1,
                             transition: { duration: 0.8, ease: "easeInOut" }
                         }}
@@ -345,7 +412,9 @@ const Hero: React.FC = () => {
                         className="pr-[2vw] relative"
                         onClick={() => scrollToSection("projects")}
                         whileHover={{
-                            textShadow: "0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)",
+                            textShadow: isLight
+                                ? "0 0 20px rgba(169, 169, 169, 0.8), 0 0 30px rgba(169, 169, 169, 0.6)"
+                                : "0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)",
                             scale: 1.1,
                             transition: { duration: 0.8, ease: "easeInOut" }
                         }}
@@ -358,7 +427,9 @@ const Hero: React.FC = () => {
                         className="relative"
                         onClick={() => scrollToSection("gallery")}
                         whileHover={{
-                            textShadow: "0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)",
+                            textShadow: isLight
+                                ? "0 0 20px rgba(169, 169, 169, 0.8), 0 0 30px rgba(169, 169, 169, 0.6)"
+                                : "0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6)",
                             scale: 1.1,
                             transition: { duration: 0.8, ease: "easeInOut" }
                         }}

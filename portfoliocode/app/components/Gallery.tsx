@@ -18,9 +18,11 @@ import Slider from "react-slick";
 import { FaChevronCircleLeft, FaChevronCircleRight, FaGithub } from 'react-icons/fa';
 import useDimension from "../utils/useDimension";
 
+interface GalleryProps {
+    isLight: boolean
+}
 
-
-const Gallery: React.FC = () => {
+const Gallery: React.FC<GalleryProps> = ({ isLight }) => {
     const photoPaths = [
         "/assets/galleryphotos/deerhacks.png",
         "/assets/galleryphotos/ecc1.png",
@@ -41,7 +43,7 @@ const Gallery: React.FC = () => {
     ];
 
     return (
-        <div className="overflow-x-hidden bg-black">
+        <div className={`overflow-x-hidden ${isLight ? "bg-white text-black" : "bg-black text-white"}`} >
             <div className="absolute right-[20vw] top-[0vh] w-[400px] h-[460px] bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] rounded-full opacity-30 blur-3xl animate-left-hero" />
             <div className="absolute right-[0vw] top-[60vh] w-[300px] h-[460px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-right-hero" />
             <div className="absolute left-[0vw] top-[30vh] w-[300px] h-[460px] bg-gradient-to-b from-[#B99CE7] to-[#7C3AED] rounded-full opacity-30 blur-3xl animate-left-hero" />
@@ -59,7 +61,7 @@ const Gallery: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                <h1 className="text-6xl font-sfBold text-white tracking-tight" style={{ fontSize: '6.3vmin' }}>Gallery</h1>
+                <h1 className="text-6xl font-sfBold tracking-tight" style={{ fontSize: '6.3vmin' }}>Gallery</h1>
                 <p className="text-4xl font-sfBold text-gray-400 mt-2" style={{ fontSize: '3.7vmin' }}>Welcome to my world.</p>
                 <div className="relative min-h-[100vh] max-w-[100vw] mt-[6vh] pr-[10vw] overflow-x-hidden flex flex-row gap-10 h-full">
                     <Column images={[photoPaths[0], photoPaths[11], photoPaths[2], photoPaths[10], photoPaths[6]]} />
@@ -67,6 +69,30 @@ const Gallery: React.FC = () => {
                     <Column images={[photoPaths[1], photoPaths[9], photoPaths[7], photoPaths[15], photoPaths[5]]} />
                 </div>
             </motion.div>
+        </div >
+    );
+};
+const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    const handleLoad = () => {
+        setIsLoaded(true);
+    };
+
+    return (
+        <div className="relative w-full min-w-[250px] rounded-[25px] overflow-hidden">
+            <motion.img
+                src={src}
+                alt={alt}
+                className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isLoaded ? 1 : 0 }}
+                onLoad={handleLoad}
+                loading="lazy"
+            />
+            {!isLoaded && (
+                <div className="absolute skeleton inset-0 bg-gray-300 animate-pulse"></div>
+            )}
         </div>
     );
 };
@@ -80,7 +106,7 @@ const Column = ({ images, y }: { images: string[]; y?: MotionValue<number> }) =>
 
                 return (
                     <div key={index} className="relative w-full min-w-[250px] rounded-[25px] overflow-hidden">
-                        <img className="w-full h-full object-cover" src={image} alt="experience" />
+                        <LazyImage key={index} src={image} alt={`experience ${index}`} />
                     </div>
                 );
             })}

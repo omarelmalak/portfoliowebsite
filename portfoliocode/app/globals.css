@@ -14,6 +14,10 @@
   }
 }
 
+div {
+  @apply transition-colors duration-200
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -83,6 +87,10 @@ body {
   animation: 8s rotate linear infinite;
 }
 
+.dynamic-island.light {
+  background: linear-gradient(white, white) padding-box, linear-gradient(var(--angle), #FFF, #687aff, #cf68ff, #68d7ff) border-box;
+}
+
 @media (min-width: 768px) {
 
   .dynamic-island {
@@ -99,6 +107,19 @@ body {
   scrollbar-width: none;
 }
 
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background: hsl(200, 20%, 70%)
+  }
+
+  100% {
+    background: hsl(200, 20%, 95%)
+  }
+}
 
 
 

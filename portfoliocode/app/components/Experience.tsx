@@ -21,8 +21,12 @@ interface Experience {
     website: string;
 }
 
+interface ExperiencesProps {
+    isLight: boolean;
+}
 
-const Experiences: React.FC = () => {
+
+const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
     const myEdMaster: Experience = {
         companyName: "MyEdMaster", position: "Software Engineering Team Lead", startDate: "January 2025", endDate: "Now",
         bullets:
@@ -184,8 +188,11 @@ const Experiences: React.FC = () => {
         setImageLoaded(true);
     };
 
+
+
+
     return (
-        <div className="relative min-h-screen max-w-screen flex flex-col bg-black h-full">
+        <div className={`relative min-h-screen max-w-screen flex flex-col ${isLight ? "bg-white text-black" : "bg-black text-white"} h-full`}>
             <div className="sticky top-0 w-full h-full">
                 <div className="absolute left-[70vw] top-0 w-[300px] h-[300px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
                 <div className="absolute left-[10vw] top-[60vh] w-[500px] h-[300px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
@@ -198,7 +205,7 @@ const Experiences: React.FC = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1, ease: "easeOut" }}
             >
-                <h1 className="text-6xl font-sfBold tracking-tigh text-white" style={{ fontSize: '6.3vmin' }}>Experience</h1>
+                <h1 className="text-6xl font-sfBold tracking-tight" style={{ fontSize: '6.3vmin' }}>Experience</h1>
                 <p className="text-4xl font-sfBold text-gray-400 mt-[0.8vh]" style={{ fontSize: '3.7vmin' }}>There is no substitute.</p>
 
                 {visibleIndex !== null && experienceList[visibleIndex] ? (
@@ -303,9 +310,9 @@ const Experiences: React.FC = () => {
                     >
 
                         <div className="w-full">
-                            <h1 className="text-4xl font-sfBold tracking-tight text-white">{experience.companyName}</h1>
+                            <h1 className="text-4xl font-sfBold tracking-tight">{experience.companyName}</h1>
                             <p className="text-2xl font-sfBold text-gray-400">{experience.position}</p>
-                            <p className="text-2xl font-sfRegular text-white">
+                            <p className="text-2xl font-sfRegular">
                                 {experience.startDate} {experience.endDate === "N/A" ? (
                                     <span />
                                 ) : experience.endDate === "Now" ? (
@@ -319,11 +326,11 @@ const Experiences: React.FC = () => {
                                 )}
                             </p>
 
-                            <ul className="text-lg font-sfRegular mt-3 text-white">
+                            <ul className="text-lg font-sfRegular mt-3">
                                 {experience.bullets.map((bullet, idx) => (
                                     <motion.li
                                         key={idx}
-                                        className="relative before:content-['●'] before:relative before:pr-2 before:text-xs before:text-white"
+                                        className="relative before:content-['●'] before:relative before:pr-2 before:text-xs"
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.3, delay: idx * 0.08 }}
