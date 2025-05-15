@@ -27,28 +27,44 @@ interface ExperiencesProps {
 
 
 const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
-    const myEdMaster: Experience = {
-        companyName: "MyEdMaster", position: "Software Engineering Team Lead", startDate: "January 2025", endDate: "Now",
+    const biotechProject: Experience = {
+        companyName: "Independent Research Project (Supervised by UofT Biotechnology Prof. Dennis Fernandes)", position: "Software Engineering Team Lead", startDate: "May 2025", endDate: "Now",
         bullets:
-            ["Leading a team of 7 software engineers to complete a digital transformation of the startup’s tutoring service.",
-                "Designed, implemented, and deployed an AI-powered database management system for tutors using Cohere API."],
-        color: "#EF5815",
-        companySummary: "Virginia-based tutoring platform leveraging automation to enhance learning.",
-        demoPath: "/assets/MyEdMasterDemo.png",
-        logoPath: "/assets/MyEdMaster.png",
-        website: "https://www.myedmaster.com/"
+            ["Leading a team of 5 software engineers to develop an AI-powered Health Technology Assessment Dashboard, while serving as the liaison to a 3-member business development team.",
+                "Developing web scraping pipelines to extract and analyze pricing and policy data from Canadian health agencies (pCPA, CDA, INESSS), supporting drug cost estimation models.",
+                "Overseeing model training and optimization on UofT’s Niagara supercomputer, enabling scalable cost estimation."],
+        color: "#002F65",
+        companySummary: "Shaping drug price estimation under the guidance of a top 20 institution in biotechnology.",
+        demoPath: "/assets/biotechDemo.jpg",
+        logoPath: "/assets/uoft.png",
+        website: "https://www.utoronto.ca/"
     }
 
     const googleDevGroup: Experience = {
         companyName: "Google Developer Group (University of Toronto)", position: "Director of Operations", startDate: "October 2024", endDate: "Now",
         bullets:
-            ["Leading the operations and marketing teams of 11 associates to host events (i.e. Women in Tech).",
+            ["Leading operations and marketing teams of 11 associates to organize and execute successful events, including the ”Women in Tech” conference with 170+ participants and 26 industry speakers.",
                 "Facilitating outreach to companies and industry professionals to engage and share insights at our events."],
         color: "#4285F4",
         companySummary: "Student-led community backed by Google Developers.",
         demoPath: "/assets/GoogleDemo2.mp4",
         logoPath: "/assets/Google.png",
         website: "https://gdg.community.dev/gdg-on-campus-university-of-toronto-st-george-campus-toronto-canada/"
+    }
+
+    const myEdMaster: Experience = {
+        companyName: "MyEdMaster", position: "Software Engineering Team Lead", startDate: "January 2025", endDate: "May 2025",
+        bullets:
+            ["Led a team of 7 software engineers to complete a digital transformation of the startup’s tutoring service.",
+                "Designed, implemented, and deployed an AI-powered assessment question database management system for tutors.",
+                "Enhanced OpenAI and Cohere LLM performance by creating datasets of 1,600+ manually labeled and synthetic data points, achieving a 31% accuracy improvement and a 54% reduction in token size on base models.",
+                "Managed sub-team ticketing, ensuring timely delivery and quality through code reviews, testing, and mentorship.",
+                "Led client communications, aligning both technical and non-technical expectations, and delivered compelling demos for incubator competitions to secure funding."],
+        color: "#EF5815",
+        companySummary: "Virginia-based tutoring platform leveraging automation to enhance learning.",
+        demoPath: "/assets/MyEdMasterDemo.mp4",
+        logoPath: "/assets/MyEdMaster.png",
+        website: "https://www.myedmaster.com/"
     }
 
     const teachingAssistant: Experience = {
@@ -120,8 +136,9 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
     }
 
     const experienceList = [
-        myEdMaster,
+        biotechProject,
         googleDevGroup,
+        myEdMaster,
         teachingAssistant,
         geotab,
         grubtech,
