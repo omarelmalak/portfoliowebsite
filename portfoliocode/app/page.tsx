@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Experiences from "./components/Experience";
 import Projects from "./components/Projects";
 import Gallery from "./components/Gallery";
+import Footer from "./components/Footer";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import ComingSoon from "./components/ComingSoon";
@@ -48,8 +49,8 @@ const Website: React.FC = () => {
   }, []);
 
   return (
-    <div className={`transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"}`}>
-      <div className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"}`}>
+    <div className={`transition-all duration-500 ease-in-out ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"}`}>
+      <div className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"}`}>
         <AnimatePresence>
           {isLoading && (
             <motion.div
@@ -78,7 +79,7 @@ const Website: React.FC = () => {
 
 
         <motion.div
-          className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full z-0`}
+          className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full z-0`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
@@ -96,7 +97,7 @@ const Website: React.FC = () => {
         <>
           <motion.div
             id="experiences"
-            className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
+            className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -106,32 +107,34 @@ const Website: React.FC = () => {
             <Experiences isLight={isLight} />
           </motion.div>
 
-          <motion.div
-            id="projects"
-            className={`relative  z-[0] transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <Projects isLight={isLight} />
-          </motion.div>
+          <div className={"overflow-hidden"}>
 
-          <motion.div
-            id="gallery"
-            className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            viewport={{ once: true, amount: 0.1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <Gallery isLight={isLight} />
-          </motion.div>
+            <motion.div
+              id="projects"
+              className={`relative  z-[0] transition-all duration-500 ease-in-out ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <Projects isLight={isLight} />
+            </motion.div>
 
-          <motion.div
-            className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-white text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
+            <motion.div
+              id="gallery"
+              className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <Gallery isLight={isLight} />
+            </motion.div>
+
+            {/* <motion.div
+            className={`relative transition-all duration-500 ease-in-out ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"} min-h-screen max-w-screen flex flex-col h-full`}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -139,7 +142,18 @@ const Website: React.FC = () => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <ComingSoon isLight={isLight} />
-          </motion.div>
+          </motion.div> */}
+            <motion.footer
+              className={`w-full py-[50px] mt-auto
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <Footer isLight={isLight} />
+            </motion.footer>
+          </div>
         </>
       )}
     </div>

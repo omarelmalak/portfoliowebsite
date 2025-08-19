@@ -71,7 +71,7 @@ div {
 }
 
 .dynamic-island.light {
-  background: linear-gradient(white, white) padding-box, linear-gradient(var(--angle), #FFF, #687aff, #cf68ff, #68d7ff) border-box;
+  background: linear-gradient(#F2F2F7, #F2F2F7) padding-box, linear-gradient(var(--angle), #FFF, #687aff, #cf68ff, #68d7ff) border-box;
 }
 
 @media (min-width: 768px) {
@@ -177,7 +177,9 @@ div {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;}
+    --radius: 0.5rem;
+  }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -202,7 +204,9 @@ div {
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;}}
+    --chart-5: 340 75% 55%;
+  }
+}
 
 
 
@@ -226,6 +230,10 @@ div {
 
 @layer base {
   * {
-    @apply border-border;}
+    @apply border-border;
+  }
+
   body {
-    @apply bg-background text-foreground;}}
+    @apply bg-background text-foreground;
+  }
+}

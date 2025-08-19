@@ -74,7 +74,7 @@ const Hero: React.FC<HeroProps> = ({ toggleMode, isLight }) => {
 
     return (
         <div
-            className={`relative min-h-screen max-w-screen ${isLight ? "bg-white text-black" : "bg-black text-white"} overflow-x-hidden overflow-y-hidden flex items-center justify-center px-6`}
+            className={`relative min-h-screen max-w-screen ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"} overflow-x-hidden overflow-y-hidden flex items-center justify-center px-6`}
             onMouseMove={handleMouseMove}
         >
             <Particles

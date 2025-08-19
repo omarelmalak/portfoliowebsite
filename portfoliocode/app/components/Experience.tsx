@@ -27,21 +27,32 @@ interface ExperiencesProps {
 
 
 const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
-    const biotechProject: Experience = {
-        companyName: "Independent Research Project (Supervised by UofT Biotechnology Prof. Dennis Fernandes)", position: "Software Engineering Team Lead", startDate: "May 2025", endDate: "Now",
+    const scotiabank: Experience = {
+        companyName: "Scotiabank", position: "Incoming Software Engineering Intern", startDate: "September 2025", endDate: "N/A",
         bullets:
-            ["Leading a team of 5 software engineers to develop an AI-powered Health Technology Assessment Dashboard, while serving as the liaison to a 3-member business development team.",
-                "Developing web scraping pipelines to extract and analyze pricing and policy data from Canadian health agencies (pCPA, CDA, INESSS), supporting drug cost estimation models.",
-                "Overseeing model training and optimization on UofT’s Niagara supercomputer, enabling scalable cost estimation."],
+            ["Joining the Global Payments Team for the Fall 2025 term to work as a full-stack engineer using Spring (Java) to create functional and scalable MVPs for global wire transfers in international markets."],
+        color: "#ED1C24",
+        companySummary: "One of Canada’s Big 5 banks, leading at the crossroads of finance and technology.",
+        demoPath: "/assets/ScotiabankDemo.png",
+        logoPath: "/assets/Scotiabank.png",
+        website: "https://www.scotiabank.com/ca/en/about.html"
+    }
+
+    const biotechProject: Experience = {
+        companyName: "Independent Research Project", position: "Software Engineering Team Lead (Supervised by UofT Biotechnology Prof. Dennis Fernandes)", startDate: "May 2025", endDate: "Now",
+        bullets:
+            ["Leading a team of 5 software engineers to develop an AI-powered Health Technology Assessment Dashboard, while serving as the liaison to a 4-member business development team.",
+                "Built Selenium web scraping pipelines to extract drug data from Canadian health agencies (pCPA, CDA, Health Canada, INESSS), deployed on UofT’s Niagara Supercomputer to schedule 1,000+ drug entries.",
+                "Developed a chatbot RAG pipeline using fine-tuned classification and prediction models to deliver more accurate retrieval and analysis of public drug documentation."],
         color: "#002F65",
-        companySummary: "Shaping drug price estimation under the guidance of a top 20 institution in biotechnology.",
+        companySummary: "Shaping Canadian Health Technology Assessment under the guidance of biotechnology and drug market access professionals.",
         demoPath: "/assets/biotechDemo.jpg",
         logoPath: "/assets/uoft.png",
         website: "https://www.utoronto.ca/"
     }
 
     const googleDevGroup: Experience = {
-        companyName: "Google Developer Group (University of Toronto)", position: "Director of Operations", startDate: "October 2024", endDate: "Now",
+        companyName: "Google Developer Group (University of Toronto)", position: "Lead (As of August 2025) — Promoted from Director of Operations", startDate: "October 2024", endDate: "Now",
         bullets:
             ["Leading operations and marketing teams of 11 associates to organize and execute successful events, including the ”Women in Tech” conference with 170+ participants and 26 industry speakers.",
                 "Facilitating outreach to companies and industry professionals to engage and share insights at our events."],
@@ -49,7 +60,7 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
         companySummary: "Student-led community backed by Google Developers.",
         demoPath: "/assets/GoogleDemo2.mp4",
         logoPath: "/assets/Google.png",
-        website: "https://gdg.community.dev/gdg-on-campus-university-of-toronto-st-george-campus-toronto-canada/"
+        website: "https://gdg.community.dev/"
     }
 
     const myEdMaster: Experience = {
@@ -136,6 +147,7 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
     }
 
     const experienceList = [
+        scotiabank,
         biotechProject,
         googleDevGroup,
         myEdMaster,
@@ -209,7 +221,7 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
 
 
     return (
-        <div className={`relative min-h-screen max-w-screen flex flex-col ${isLight ? "bg-white text-black" : "bg-black text-white"} h-full`}>
+        <div className={`relative min-h-screen max-w-screen flex flex-col ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"} h-full`}>
             <div className="sticky top-0 w-full h-full">
                 <div className="absolute left-[70vw] top-0 w-[300px] h-[300px] bg-gradient-to-r from-[#B99CE7] to-[#F1B27A] rounded-full opacity-30 blur-3xl animate-left-hero" />
                 <div className="absolute left-[10vw] top-[60vh] w-[500px] h-[300px] bg-gradient-to-r from-[#A0E4D9] to-[#A8D9F7] rounded-full opacity-20 blur-3xl animate-right-hero" />
