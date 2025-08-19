@@ -62,7 +62,7 @@ const Gallery: React.FC<GalleryProps> = ({ isLight }) => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
                 <h1 className="text-6xl font-sfBold tracking-tight" style={{ fontSize: '6.3vmin' }}>Gallery</h1>
-                <p className="text-4xl font-sfBold text-gray-400 mt-2" style={{ fontSize: '3.7vmin' }}>Welcome to my world.</p>
+                <p className="text-4xl font-sfBold text-gray-400 mt-2" style={{ fontSize: '3.7vmin' }}>My work, through the lens.</p>
                 <div className="relative min-h-[100vh] max-w-[100vw] mt-[6vh] pr-[10vw] overflow-x-hidden flex flex-row gap-10 h-full">
                     <Column images={[photoPaths[0], photoPaths[11], photoPaths[2], photoPaths[10], photoPaths[6]]} />
                     <Column images={[photoPaths[14], photoPaths[3], photoPaths[13], photoPaths[4], photoPaths[8], photoPaths[12]]} />
