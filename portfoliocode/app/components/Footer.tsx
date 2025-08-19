@@ -11,13 +11,13 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ isLight }) => {
     return (
 
-        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 px-6">
+        <div className={`container mx-auto ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"} flex flex-col sm:flex-row justify-between items-center gap-4 px-6`}>
             <p className="text-sm">
                 © {new Date().getFullYear()} Omar El Malak. All rights reserved.
             </p>
 
             {/* Right side: social links */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 relative z-20">
                 <a href="https://www.linkedin.com/in/omarelmalak" target="_blank" rel="noopener noreferrer">
                     <FaLinkedin size={40} className="duration-300 hover:scale-105 hover:shadow-2xl" />
                 </a>

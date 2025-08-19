@@ -144,7 +144,7 @@ const Website: React.FC = () => {
             <ComingSoon isLight={isLight} />
           </motion.div> */}
             <motion.footer
-              className={`w-full py-[50px] mt-auto
+              className={`w-full py-[50px] mt-auto ${isLight ? "bg-[#F2F2F7] text-black" : "bg-black text-white"}
               }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
