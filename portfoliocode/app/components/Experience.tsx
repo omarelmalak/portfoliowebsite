@@ -41,7 +41,7 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
     const biotechProject: Experience = {
         companyName: "Independent Research Project", position: "Software Engineering Team Lead (Supervised by UofT Biotechnology Prof. Dennis Fernandes)", startDate: "May 2025", endDate: "September 2025",
         bullets:
-            ["Leading a team of 5 engineers to develop an AI-powered Health Technology Assessment Dashboard, serving as liaison to a 4-member business development team in collaboration with biopharma partners including Sanofi.",
+            ["Led a team of 5 engineers to develop an AI-powered Health Technology Assessment Dashboard, serving as liaison to a 4-member business development team in collaboration with biopharma partners including Sanofi.",
                 "Built Selenium web scraping pipelines to extract drug data from Canadian health agencies (pCPA, CDA, Health Canada, INESSS), deployed on UofT’s Niagara Supercomputer to schedule 1,000+ drug entries.",
                 "Developed a chatbot RAG pipeline using fine-tuned classification and prediction models to deliver more accurate retrieval and analysis of public drug documentation."],
         color: "#002F65",
