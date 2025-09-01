@@ -28,7 +28,7 @@ interface ExperiencesProps {
 
 const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
     const scotiabank: Experience = {
-        companyName: "Scotiabank", position: "Incoming Software Engineering Intern", startDate: "September 2025", endDate: "N/A",
+        companyName: "Scotiabank", position: "Software Engineering Intern", startDate: "September 2025", endDate: "Now",
         bullets:
             ["Joining the Global Payments Team for the Fall 2025 term to work as a full-stack engineer using Spring (Java) to create functional and scalable MVPs for global wire transfers in international markets."],
         color: "#ED1C24",
@@ -39,9 +39,9 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
     }
 
     const biotechProject: Experience = {
-        companyName: "Independent Research Project", position: "Software Engineering Team Lead (Supervised by UofT Biotechnology Prof. Dennis Fernandes)", startDate: "May 2025", endDate: "Now",
+        companyName: "Independent Research Project", position: "Software Engineering Team Lead (Supervised by UofT Biotechnology Prof. Dennis Fernandes)", startDate: "May 2025", endDate: "September 2025",
         bullets:
-            ["Leading a team of 5 software engineers to develop an AI-powered Health Technology Assessment Dashboard, while serving as the liaison to a 4-member business development team.",
+            ["Leading a team of 5 engineers to develop an AI-powered Health Technology Assessment Dashboard, serving as liaison to a 4-member business development team in collaboration with biopharma partners including Sanofi.",
                 "Built Selenium web scraping pipelines to extract drug data from Canadian health agencies (pCPA, CDA, Health Canada, INESSS), deployed on UofT’s Niagara Supercomputer to schedule 1,000+ drug entries.",
                 "Developed a chatbot RAG pipeline using fine-tuned classification and prediction models to deliver more accurate retrieval and analysis of public drug documentation."],
         color: "#002F65",
@@ -148,8 +148,8 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
 
     const experienceList = [
         scotiabank,
-        biotechProject,
         googleDevGroup,
+        biotechProject,
         myEdMaster,
         teachingAssistant,
         geotab,
