@@ -27,10 +27,46 @@ interface ExperiencesProps {
 
 
 const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
-    const scotiabank: Experience = {
-        companyName: "Scotiabank", position: "Software Engineering Intern", startDate: "September 2025", endDate: "Now",
+    const hubspot: Experience = {
+        companyName: "HubSpot", position: "Incoming Backend Software Engineering Intern", startDate: "May 2026", endDate: "September 2026",
         bullets:
-            ["Joining the Global Payments Team for the Fall 2025 term to work as a full-stack engineer using Spring (Java) to create functional and scalable MVPs for global wire transfers in international markets."],
+            [
+                "Incoming Backend Software Engineering Intern joining the DPG API Foundations team in Cambridge, MA, United States.",
+            ],
+        color: "#FF4E15",
+        companySummary: "Customer platform with CRM, marketing, sales, and service software.",
+        demoPath: "/assets/HubspotDemo2.png",
+        logoPath: "/assets/Hubspot.png",
+        website: "https://www.hubspot.com/"
+    }
+
+    const ada: Experience = {
+        companyName: "Ada CX", position: "Software Engineering Intern", startDate: "January 2026", endDate: "April 2026",
+        bullets:
+            [
+                "Completed 85 tickets and investigations (21 high priority & critical launch blockers) across 6 projects on the Adoption Team.",
+                "Built and deployed an MCP server for enterprise AI conversation testing, reducing test setup time from minutes to seconds and queue latency by over 98%. Owned the project end-to-end and hosted a bug bash with CX teams.",
+                "Led rollout of production features via LaunchDarkly and built architecture diagrams and Datadog dashboards, supporting 1,050+ MCP requests in the first 3 weeks. Monitored and resolved bugs using Sentry.",
+                "Designed and implemented a 3-bucket input validation taxonomy, adding 11 validations across 3 Flask APIs; uncovered a critical vulnerability before enterprise client onboarding.",
+                "Identified and resolved cross-team bugs, including a knowledge article retrieval latency reduction from 4m 39s to 2s (99.3%) for 2 enterprise analytics clients.",
+                "Shipped a confidence scoring system evaluated across 616 production cases, reducing overconfident outputs from 51.8% to 27% while maintaining 94.2% decision agreement.",
+            ],
+        color: "#9874D5",
+        companySummary: "AI CX platform helping enterprises resolve conversations faster with high-quality, reliable answers.",
+        demoPath: "/assets/AdaDemo.jpg",
+        logoPath: "/assets/Ada.jpg",
+        website: "https://www.ada.cx/"
+    }
+
+    const scotiabank: Experience = {
+        companyName: "Scotiabank", position: "Software Engineering Intern", startDate: "September 2025", endDate: "December 2025",
+        bullets:
+            [
+                "Developed React (JavaScript) components with Redux state management for a global payments platform.",
+                "Built a multilanguage formatting library adopted across our lab and into shared components used by 10+ teams.",
+                "Built and refactored frontend components to improve maintainability, resolved production-critical security vulnerabilities, and increased cross-team repository test coverage to over 79%.",
+                "Only intern selected to represent a team at the year-end showcase (all other teams represented by senior managers) and presented to 300+ engineers and executives. Later appointed showcase manager for all teams.",
+            ],
         color: "#ED1C24",
         companySummary: "One of Canada’s Big 5 banks, leading at the crossroads of finance and technology.",
         demoPath: "/assets/ScotiabankDemo.png",
@@ -52,7 +88,7 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
     }
 
     const googleDevGroup: Experience = {
-        companyName: "Google Developer Group (University of Toronto)", position: "Lead (As of August 2025) — Promoted from Director of Operations", startDate: "October 2024", endDate: "Now",
+        companyName: "Google Developer Group (University of Toronto)", position: "Lead (As of August 2025) — Promoted from Director of Operations", startDate: "October 2024", endDate: "April 2026",
         bullets:
             ["Leading operations and marketing teams of 11 associates to organize and execute successful events, including the ”Women in Tech” conference with 170+ participants and 26 industry speakers.",
                 "Facilitating outreach to companies and industry professionals to engage and share insights at our events."],
@@ -147,6 +183,8 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
     }
 
     const experienceList = [
+        hubspot,
+        ada,
         scotiabank,
         googleDevGroup,
         biotechProject,
