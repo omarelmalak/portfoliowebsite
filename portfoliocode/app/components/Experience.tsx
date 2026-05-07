@@ -68,7 +68,7 @@ const Experiences: React.FC<ExperiencesProps> = ({ isLight }) => {
                 "Only intern selected to represent a team at the year-end showcase (all other teams represented by senior managers) and presented to 300+ engineers and executives. Later appointed showcase manager for all teams.",
             ],
         color: "#ED1C24",
-        companySummary: "One of Canada’s Big 5 banks, leading at the crossroads of finance and technology.",
+        companySummary: "One of Canada’s Big 5 banks, leading in financial services and technology.",
         demoPath: "/assets/ScotiabankDemo.png",
         logoPath: "/assets/Scotiabank.png",
         website: "https://www.scotiabank.com/ca/en/about.html"
